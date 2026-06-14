@@ -7,7 +7,7 @@ const profile = {
   role: "AI/ML & Data Science Intern Aspirant",
   email: "prasannasegabandi@gmail.com",
   github: "https://github.com/Prasannasegabandi36",
-  linkedin: "https://www.linkedin.com/in/prasanna-rani-segabandi/",
+  linkedin: "https://www.linkedin.com/in/segabandi-prasanna-rani-5828a42ba/",
   resume: "#"
 };
 
@@ -428,6 +428,7 @@ function App() {
         <div className="certificateWrapper">
           <div className="certificateBox">
             <h3>Online MOOCs / Certifications</h3>
+
             <div className="certificateTags">
               {certificates.map((cert) => (
                 <span key={cert}>{cert}</span>
@@ -437,6 +438,7 @@ function App() {
 
           <div className="certificateBox">
             <h3>Key Courses Taken</h3>
+
             <div className="certificateTags">
               {courses.map((course) => (
                 <span key={course}>{course}</span>
