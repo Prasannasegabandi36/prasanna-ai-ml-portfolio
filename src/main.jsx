@@ -7,7 +7,7 @@ const profile = {
   role: "AI/ML & Data Science Intern Aspirant",
   email: "prasannasegabandi@gmail.com",
   github: "https://github.com/Prasannasegabandi36",
-  linkedin: "https://www.linkedin.com/in/your-linkedin-profile",
+  linkedin: "https://www.linkedin.com/in/prasanna-rani-segabandi",
   resume: "#"
 };
 
