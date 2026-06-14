@@ -1,54 +1,122 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
 const profile = {
   name: "Segabandi Prasanna Rani",
   role: "AI/ML & Data Science Intern Aspirant",
-  tagline:
-    "Building practical AI, ML, Data Science, and GenAI solutions through real-world projects.",
-  email: "your-email@example.com",
+  email: "prasannasegabandi@gmail.com",
   github: "https://github.com/Prasannasegabandi36",
   linkedin: "https://www.linkedin.com/in/your-linkedin-profile",
   resume: "#"
 };
 
+const typingSentences = [
+  "I build AI-powered applications that solve real-world problems.",
+  "I turn machine learning ideas into deployed web applications.",
+  "I am exploring Data Science, GenAI, Agentic AI, and practical ML systems.",
+  "I am open to AI/ML, Data Science, and GenAI internship opportunities."
+];
+
+const education = [
+  {
+    degree: "BSc (Hons) - Data Science and Artificial Intelligence",
+    institute: "Indian Institute of Technology, Guwahati",
+    score: "CGPA: 7.53 Current",
+    year: "2023 - Present"
+  },
+  {
+    degree: "Senior Secondary",
+    institute: "Board of Intermediate Education, Andhra Pradesh",
+    score: "90.0%",
+    year: "2021"
+  },
+  {
+    degree: "Secondary",
+    institute: "Board of Secondary Education, Andhra Pradesh",
+    score: "93.0%",
+    year: "2019"
+  }
+];
+
+const experience = [
+  {
+    role: "Data Science Intern",
+    company: "Unified Mentor",
+    year: "2026 - Present",
+    points: [
+      "Developed interactive analytics dashboards using Python, Pandas, Streamlit, Matplotlib, and Plotly.",
+      "Built Banking Customer Retention and Nassau Candy Shipping Analytics dashboards to analyze KPIs, churn, shipping cost, order trends, and business performance."
+    ]
+  },
+  {
+    role: "AI/ML Intern",
+    company: "Micro Information Technology Services",
+    year: "2025",
+    points: [
+      "Developed an NLP Sentiment Analysis project to classify text into positive, negative, and neutral sentiments.",
+      "Used NLTK, TextBlob, Scikit-learn, and Streamlit for preprocessing, prediction, and real-time web interface development."
+    ]
+  }
+];
+
+const certificates = [
+  "Machine Learning",
+  "Deep Learning",
+  "Sequence Models",
+  "Convolutional Neural Networks",
+  "Generative AI with LangChain and Hugging Face",
+  "Data Analysis with Python",
+  "Prompt Engineering"
+];
+
+const courses = [
+  "Linear Algebra",
+  "Probability",
+  "Statistics",
+  "Multivariable Calculus",
+  "Introduction to Computing",
+  "Data Structures and Algorithms",
+  "Recommendation System Design Using Deep Learning",
+  "Pattern Recognition and Machine Learning"
+];
+
 const projects = [
   {
-    title: "AI Medicine Safety Assistant",
+    title: "AI Shopping Assistant",
     category: "GenAI",
     year: "2026",
-    tech: ["Python", "Streamlit", "Groq API", "OCR", "Drug API"],
-    desc: "AI-powered medicine safety app to search medicine details, usage, safety information, and generate simple AI summaries.",
+    tech: ["LangChain", "Groq API", "SQLite", "Streamlit"],
+    desc: "AI-powered shopping assistant supporting product search, image-based queries, review lookup, and checkout simulation.",
+    github: "https://github.com/Prasannasegabandi36/AI-Shopping-Assistant",
+    live: "#"
+  },
+  {
+    title: "AI Medicine Safety Assistant",
+    category: "Healthcare AI",
+    year: "2026",
+    tech: ["Python", "Streamlit", "OCR", "AI Summary"],
+    desc: "Healthcare awareness app to search medicine details and explain uses, precautions, and safety notes in simple language.",
     github: "https://github.com/Prasannasegabandi36/ai-medicine-safety-assistant",
     live: "https://ai-medicine-safety-assistant.streamlit.app/"
   },
   {
     title: "Multi-Agent AI Career Assistant",
-    category: "GenAI",
+    category: "Agentic AI",
     year: "2026",
-    tech: ["CrewAI", "LangChain", "Groq", "Streamlit"],
-    desc: "Multi-agent AI system for resume analysis, job matching, skill gap planning, interview preparation, and career reports.",
+    tech: ["CrewAI", "Groq API", "Streamlit"],
+    desc: "Multi-agent system to analyze resumes, match job descriptions, identify skill gaps, and generate interview guidance.",
     github: "https://github.com/Prasannasegabandi36/multi-agent-ai-career-assistant",
     live: "https://multi-agent-ai-career-assistant-rerompyd6ykpxbknrkdisb.streamlit.app/"
   },
   {
     title: "LinkedIn Post Generator",
     category: "GenAI",
-    year: "2026",
-    tech: ["LangChain", "Groq API", "Streamlit", "Prompt Engineering"],
-    desc: "GenAI tool that creates professional LinkedIn posts using LLM prompts for students and professionals.",
+    year: "2025",
+    tech: ["LangChain", "Groq API", "Streamlit"],
+    desc: "GenAI content automation project that generates professional LinkedIn posts using LLM prompts.",
     github: "https://github.com/Prasannasegabandi36/linkedin-post-generator",
     live: "https://linkedin-post-generator-4r24kesjtr6cwqrogdwlrv.streamlit.app/"
-  },
-  {
-    title: "AI Shopping Assistant",
-    category: "GenAI",
-    year: "2026",
-    tech: ["Streamlit", "Groq API", "Image Search", "Text Search"],
-    desc: "AI shopping assistant that helps users find product suggestions using image and text-based inputs.",
-    github: "https://github.com/Prasannasegabandi36/AI-Shopping-Assistant",
-    live: "#"
   },
   {
     title: "NLP Sentiment Analysis App",
@@ -74,39 +142,60 @@ const skills = [
   {
     title: "Programming",
     icon: "💻",
-    items: ["Python", "SQL", "Git", "GitHub"]
+    items: ["Python", "SQL", "Java", "C", "C++"]
   },
   {
-    title: "Data Science",
+    title: "Data Analysis & Visualization",
     icon: "📊",
-    items: ["Pandas", "NumPy", "EDA", "Matplotlib", "Seaborn"]
+    items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Excel"]
   },
   {
-    title: "Machine Learning",
+    title: "Machine Learning & NLP",
     icon: "🧠",
-    items: ["Scikit-learn", "NLP", "Model Building", "Evaluation"]
+    items: ["Scikit-learn", "NLTK", "TextBlob", "Classification", "Regression", "Model Evaluation"]
   },
   {
     title: "Generative AI",
     icon: "🤖",
-    items: ["LangChain", "CrewAI", "Groq API", "Gemini API", "Prompt Engineering"]
+    items: ["LLM Basics", "Prompt Engineering", "RAG Basics", "LangChain", "CrewAI", "Groq API"]
   },
   {
-    title: "Deployment",
+    title: "Tools & Deployment",
     icon: "🚀",
-    items: ["Streamlit", "Streamlit Cloud", "Vercel", "VS Code"]
+    items: ["Streamlit", "Jupyter Notebook", "Google Colab", "Git", "GitHub", "VS Code"]
   }
 ];
 
 function App() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [sentenceIndex, setSentenceIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
 
-  const categories = ["All", "GenAI", "ML", "Data Science"];
+  const categories = ["All", "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
 
   const filteredProjects =
     activeFilter === "All"
       ? projects
       : projects.filter((project) => project.category === activeFilter);
+
+  useEffect(() => {
+    const currentSentence = typingSentences[sentenceIndex];
+    let charIndex = 0;
+
+    const typing = setInterval(() => {
+      setTypedText(currentSentence.slice(0, charIndex + 1));
+      charIndex++;
+
+      if (charIndex === currentSentence.length) {
+        clearInterval(typing);
+        setTimeout(() => {
+          setSentenceIndex((prev) => (prev + 1) % typingSentences.length);
+        }, 1800);
+      }
+    }, 55);
+
+    return () => clearInterval(typing);
+  }, [sentenceIndex]);
 
   return (
     <div className="app">
@@ -115,16 +204,18 @@ function App() {
 
         <div className="navLinks">
           <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
+          <a href="#certificates">Certificates</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
       <section className="hero">
         <div className="heroContent">
-          <div className="badge">✨ Open to AI/ML, Data Science & GenAI Internships</div>
+          <div className="badge">✨ AI/ML • Data Science • GenAI • Internship Ready</div>
 
           <h1>
             Hi, I am <span>{profile.name}</span>
@@ -132,7 +223,32 @@ function App() {
 
           <h2>{profile.role}</h2>
 
-          <p>{profile.tagline}</p>
+          <div className="typingBox premiumTyping">
+            <span>{typedText}</span>
+            <b>|</b>
+          </div>
+
+          <div className="animatedWords">
+            <span>Machine Learning</span>
+            <span>Data Science</span>
+            <span>Generative AI</span>
+            <span>Agentic AI</span>
+            <span>Streamlit Apps</span>
+          </div>
+
+          <div className="floatingBadges">
+            <span>Python</span>
+            <span>LangChain</span>
+            <span>CrewAI</span>
+            <span>Groq API</span>
+            <span>RAG Basics</span>
+          </div>
+
+          <p>
+            I am pursuing BSc (Hons) in Data Science and Artificial Intelligence
+            at IIT Guwahati. I build AI, ML, Data Science, NLP, and GenAI
+            projects with real deployment using Streamlit, GitHub, and Vercel.
+          </p>
 
           <div className="heroButtons">
             <a href="#projects" className="primaryBtn">View Projects</a>
@@ -152,22 +268,22 @@ function App() {
           </div>
 
           <h3>AI Portfolio System</h3>
-          <p>Projects • Skills • Growth • Internship Readiness</p>
+          <p>Education • Experience • Projects • Certificates</p>
 
           <div className="statsGrid">
+            <div>
+              <strong>7.53</strong>
+              <span>Current CGPA</span>
+            </div>
+
             <div>
               <strong>6+</strong>
               <span>Projects</span>
             </div>
 
             <div>
-              <strong>4+</strong>
-              <span>Live Apps</span>
-            </div>
-
-            <div>
-              <strong>GenAI</strong>
-              <span>Focus</span>
+              <strong>2</strong>
+              <span>Internships</span>
             </div>
           </div>
         </div>
@@ -176,7 +292,7 @@ function App() {
       <section id="about" className="section">
         <div className="sectionHeader">
           <span>About Me</span>
-          <h2>Internship-focused AI/ML Portfolio</h2>
+          <h2>Building practical AI solutions for real-world problems</h2>
         </div>
 
         <div className="aboutBox">
@@ -187,10 +303,53 @@ function App() {
           </p>
 
           <p>
-            I enjoy creating useful AI applications, analytics dashboards, and
-            GenAI tools that solve practical problems. I am actively looking for
-            internship opportunities in AI/ML, Data Science, and GenAI.
+            My focus is to create practical AI applications, analytics
+            dashboards, and GenAI tools that can be used as real deployed
+            projects, not only notebook experiments.
           </p>
+        </div>
+      </section>
+
+      <section id="education" className="section">
+        <div className="sectionHeader">
+          <span>Education</span>
+          <h2>Academic Background</h2>
+        </div>
+
+        <div className="educationGrid">
+          {education.map((edu, index) => (
+            <div className="educationCard" key={index}>
+              <div className="educationYear">{edu.year}</div>
+              <h3>{edu.degree}</h3>
+              <p>{edu.institute}</p>
+              <strong>{edu.score}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="experience" className="section">
+        <div className="sectionHeader">
+          <span>Experience</span>
+          <h2>Internship Experience</h2>
+        </div>
+
+        <div className="experienceGrid">
+          {experience.map((item, index) => (
+            <div className="experienceCard" key={index}>
+              <div className="experienceTop">
+                <div>
+                  <h3>{item.company}</h3>
+                  <p>{item.role}</p>
+                </div>
+                <span>{item.year}</span>
+              </div>
+
+              {item.points.map((point, i) => (
+                <p className="expPoint" key={i}>— {point}</p>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -260,43 +419,28 @@ function App() {
         </div>
       </section>
 
-      <section id="experience" className="section">
+      <section id="certificates" className="section">
         <div className="sectionHeader">
-          <span>Experience</span>
-          <h2>Learning & Growth Timeline</h2>
+          <span>Certificates & Courses</span>
+          <h2>Relevant Learning</h2>
         </div>
 
-        <div className="timeline">
-          <div className="timelineItem">
-            <div className="timelineDot"></div>
-            <div>
-              <h3>Data Science Internship Projects</h3>
-              <p>
-                Worked on analytics dashboards, business insights, and
-                data-driven decision support projects using Python and Streamlit.
-              </p>
+        <div className="certificateWrapper">
+          <div className="certificateBox">
+            <h3>Online MOOCs / Certifications</h3>
+            <div className="certificateTags">
+              {certificates.map((cert) => (
+                <span key={cert}>{cert}</span>
+              ))}
             </div>
           </div>
 
-          <div className="timelineItem">
-            <div className="timelineDot"></div>
-            <div>
-              <h3>GenAI Project Development</h3>
-              <p>
-                Built LLM-based apps using LangChain, CrewAI, Groq API, and
-                Streamlit for content generation and AI assistants.
-              </p>
-            </div>
-          </div>
-
-          <div className="timelineItem">
-            <div className="timelineDot"></div>
-            <div>
-              <h3>AI/ML Internship Preparation</h3>
-              <p>
-                Creating strong portfolio projects, improving resume quality,
-                practicing interviews, and learning real-world AI system design.
-              </p>
+          <div className="certificateBox">
+            <h3>Key Courses Taken</h3>
+            <div className="certificateTags">
+              {courses.map((course) => (
+                <span key={course}>{course}</span>
+              ))}
             </div>
           </div>
         </div>
@@ -312,8 +456,8 @@ function App() {
           <div>
             <h3>Project-Based Learning</h3>
             <p>
-              I build and deploy complete projects, not just notebooks, so
-              recruiters can see my practical work.
+              I build and deploy complete projects so recruiters can see my
+              practical work clearly.
             </p>
           </div>
 
@@ -328,8 +472,8 @@ function App() {
           <div>
             <h3>AI Curiosity</h3>
             <p>
-              I actively explore GenAI, agents, prompt engineering, and ML
-              applications for real-world use cases.
+              I actively explore GenAI, agents, prompt engineering, RAG basics,
+              and ML applications for real-world use cases.
             </p>
           </div>
         </div>
