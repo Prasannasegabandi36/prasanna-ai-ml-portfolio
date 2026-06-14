@@ -1,20 +1,5 @@
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-import {
-  Github,
-  Link,
-  Mail,
-  ExternalLink,
-  Download,
-  Sparkles,
-  Brain,
-  Database,
-  Bot,
-  Code2,
-  Award,
-  Rocket,
-  Filter,
-} from "lucide-react";
 import "./style.css";
 
 const profile = {
@@ -25,7 +10,7 @@ const profile = {
   email: "your-email@example.com",
   github: "https://github.com/Prasannasegabandi36",
   linkedin: "https://www.linkedin.com/in/your-linkedin-profile",
-  resume: "#",
+  resume: "#"
 };
 
 const projects = [
@@ -36,25 +21,25 @@ const projects = [
     tech: ["Python", "Streamlit", "Groq API", "OCR", "Drug API"],
     desc: "AI-powered medicine safety app to search medicine details, usage, safety information, and generate simple AI summaries.",
     github: "https://github.com/Prasannasegabandi36/ai-medicine-safety-assistant",
-    live: "https://ai-medicine-safety-assistant.streamlit.app/",
+    live: "https://ai-medicine-safety-assistant.streamlit.app/"
   },
   {
     title: "Multi-Agent AI Career Assistant",
     category: "GenAI",
     year: "2026",
     tech: ["CrewAI", "LangChain", "Groq", "Streamlit"],
-    desc: "Built a multi-agent system for resume analysis, job matching, skill gap planning, interview preparation, and career reports.",
+    desc: "Multi-agent AI system for resume analysis, job matching, skill gap planning, interview preparation, and career reports.",
     github: "https://github.com/Prasannasegabandi36/multi-agent-ai-career-assistant",
-    live: "https://multi-agent-ai-career-assistant-rerompyd6ykpxbknrkdisb.streamlit.app/",
+    live: "https://multi-agent-ai-career-assistant-rerompyd6ykpxbknrkdisb.streamlit.app/"
   },
   {
     title: "LinkedIn Post Generator",
     category: "GenAI",
     year: "2026",
     tech: ["LangChain", "Groq API", "Streamlit", "Prompt Engineering"],
-    desc: "Generated professional LinkedIn posts using LLM prompts for students, professionals, and project updates.",
+    desc: "GenAI tool that creates professional LinkedIn posts using LLM prompts for students and professionals.",
     github: "https://github.com/Prasannasegabandi36/linkedin-post-generator",
-    live: "https://linkedin-post-generator-4r24kesjtr6cwqrogdwlrv.streamlit.app/",
+    live: "https://linkedin-post-generator-4r24kesjtr6cwqrogdwlrv.streamlit.app/"
   },
   {
     title: "AI Shopping Assistant",
@@ -63,16 +48,16 @@ const projects = [
     tech: ["Streamlit", "Groq API", "Image Search", "Text Search"],
     desc: "AI shopping assistant that helps users find product suggestions using image and text-based inputs.",
     github: "https://github.com/Prasannasegabandi36/AI-Shopping-Assistant",
-    live: "#",
+    live: "#"
   },
   {
     title: "NLP Sentiment Analysis App",
     category: "ML",
     year: "2025",
     tech: ["Python", "NLP", "Scikit-learn", "Streamlit"],
-    desc: "Developed an NLP app to classify text sentiment as positive, negative, or neutral with real-time prediction.",
+    desc: "NLP app to classify text sentiment as positive, negative, or neutral with real-time prediction.",
     github: "https://github.com/Prasannasegabandi36/NLP-Sentiment-Analysis-Streamlit",
-    live: "https://nlp-sentiment-analysis-app-ltibii22sappryq93zfxnfq.streamlit.app/",
+    live: "https://nlp-sentiment-analysis-app-ltibii22sappryq93zfxnfq.streamlit.app/"
   },
   {
     title: "Nassau Candy Distributor Analytics",
@@ -81,36 +66,36 @@ const projects = [
     tech: ["Python", "Pandas", "Matplotlib", "Streamlit"],
     desc: "Data analytics dashboard for shipping analysis, factory allocation, regional performance, and business insights.",
     github: "https://github.com/Prasannasegabandi36/Nassau-Candy-Distributor",
-    live: "https://candy-shipping-analysis.streamlit.app/",
-  },
+    live: "https://candy-shipping-analysis.streamlit.app/"
+  }
 ];
 
 const skills = [
   {
-    icon: <Code2 />,
     title: "Programming",
-    items: ["Python", "SQL", "Git", "GitHub"],
+    icon: "💻",
+    items: ["Python", "SQL", "Git", "GitHub"]
   },
   {
-    icon: <Database />,
     title: "Data Science",
-    items: ["Pandas", "NumPy", "EDA", "Matplotlib", "Seaborn"],
+    icon: "📊",
+    items: ["Pandas", "NumPy", "EDA", "Matplotlib", "Seaborn"]
   },
   {
-    icon: <Brain />,
     title: "Machine Learning",
-    items: ["Scikit-learn", "NLP", "Model Building", "Evaluation"],
+    icon: "🧠",
+    items: ["Scikit-learn", "NLP", "Model Building", "Evaluation"]
   },
   {
-    icon: <Bot />,
-    title: "GenAI",
-    items: ["LangChain", "CrewAI", "Groq API", "Gemini API", "Prompt Engineering"],
+    title: "Generative AI",
+    icon: "🤖",
+    items: ["LangChain", "CrewAI", "Groq API", "Gemini API", "Prompt Engineering"]
   },
   {
-    icon: <Rocket />,
     title: "Deployment",
-    items: ["Streamlit", "Streamlit Cloud", "Vercel", "VS Code"],
-  },
+    icon: "🚀",
+    items: ["Streamlit", "Streamlit Cloud", "Vercel", "VS Code"]
+  }
 ];
 
 function App() {
@@ -127,7 +112,8 @@ function App() {
     <div className="app">
       <nav className="navbar">
         <div className="logo">PR</div>
-        <div className="nav-links">
+
+        <div className="navLinks">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
@@ -137,11 +123,8 @@ function App() {
       </nav>
 
       <section className="hero">
-        <div className="hero-content">
-          <div className="badge">
-            <Sparkles size={16} />
-            Open to AI/ML, Data Science & GenAI Internships
-          </div>
+        <div className="heroContent">
+          <div className="badge">✨ Open to AI/ML, Data Science & GenAI Internships</div>
 
           <h1>
             Hi, I am <span>{profile.name}</span>
@@ -151,55 +134,37 @@ function App() {
 
           <p>{profile.tagline}</p>
 
-          <div className="hero-buttons">
-            <a href="#projects" className="primary-btn">
-              View Projects
-              <ExternalLink size={18} />
-            </a>
-
-            <a href={profile.resume} className="secondary-btn">
-              Download Resume
-              <Download size={18} />
-            </a>
+          <div className="heroButtons">
+            <a href="#projects" className="primaryBtn">View Projects</a>
+            <a href={profile.resume} className="secondaryBtn">Download Resume</a>
           </div>
 
-          <div className="social-links">
-            <a href={profile.github} target="_blank" rel="noreferrer">
-              <Github size={20} />
-            </a>
-
-            <a href={profile.linkedin} target="_blank" rel="noreferrer">
-              <Link size={20} />
-            </a>
-
-            <a href={`mailto:${profile.email}`}>
-              <Mail size={20} />
-            </a>
+          <div className="socialLinks">
+            <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href={`mailto:${profile.email}`}>Email</a>
           </div>
         </div>
 
-        <div className="hero-card">
-          <div className="card-glow"></div>
-          <div className="ai-orbit">
-            <div className="orbit-circle one"></div>
-            <div className="orbit-circle two"></div>
-            <div className="orbit-center">
-              <Brain size={48} />
-            </div>
+        <div className="heroCard">
+          <div className="orbit">
+            <div className="orbitCenter">AI</div>
           </div>
 
           <h3>AI Portfolio System</h3>
           <p>Projects • Skills • Growth • Internship Readiness</p>
 
-          <div className="stats-grid">
+          <div className="statsGrid">
             <div>
               <strong>6+</strong>
               <span>Projects</span>
             </div>
+
             <div>
               <strong>4+</strong>
               <span>Live Apps</span>
             </div>
+
             <div>
               <strong>GenAI</strong>
               <span>Focus</span>
@@ -209,41 +174,39 @@ function App() {
       </section>
 
       <section id="about" className="section">
-        <div className="section-header">
+        <div className="sectionHeader">
           <span>About Me</span>
           <h2>Internship-focused AI/ML Portfolio</h2>
         </div>
 
-        <div className="about-box">
+        <div className="aboutBox">
           <p>
             I am an AI/ML and Data Science learner with hands-on experience in
             building real-world projects using Python, Machine Learning, NLP,
-            Streamlit, LangChain, CrewAI, and Groq API. I enjoy creating useful
-            AI applications, analytics dashboards, and GenAI tools that solve
-            practical problems.
+            Streamlit, LangChain, CrewAI, and Groq API.
           </p>
 
           <p>
-            I am actively looking for internship opportunities in AI/ML, Data
-            Science, and GenAI where I can apply my project experience, improve
-            my technical skills, and contribute to meaningful real-world
-            solutions.
+            I enjoy creating useful AI applications, analytics dashboards, and
+            GenAI tools that solve practical problems. I am actively looking for
+            internship opportunities in AI/ML, Data Science, and GenAI.
           </p>
         </div>
       </section>
 
       <section id="skills" className="section">
-        <div className="section-header">
+        <div className="sectionHeader">
           <span>Skills</span>
           <h2>Technical Stack</h2>
         </div>
 
-        <div className="skills-grid">
+        <div className="skillsGrid">
           {skills.map((skill, index) => (
-            <div className="skill-card" key={index}>
-              <div className="skill-icon">{skill.icon}</div>
+            <div className="skillCard" key={index}>
+              <div className="skillIcon">{skill.icon}</div>
               <h3>{skill.title}</h3>
-              <div className="skill-tags">
+
+              <div className="skillTags">
                 {skill.items.map((item) => (
                   <span key={item}>{item}</span>
                 ))}
@@ -254,13 +217,12 @@ function App() {
       </section>
 
       <section id="projects" className="section">
-        <div className="section-header">
+        <div className="sectionHeader">
           <span>Projects</span>
           <h2>Featured Work</h2>
         </div>
 
-        <div className="filter-box">
-          <Filter size={18} />
+        <div className="filterBox">
           {categories.map((category) => (
             <button
               key={category}
@@ -272,10 +234,10 @@ function App() {
           ))}
         </div>
 
-        <div className="projects-grid">
+        <div className="projectsGrid">
           {filteredProjects.map((project, index) => (
-            <div className="project-card" key={index}>
-              <div className="project-top">
+            <div className="projectCard" key={index}>
+              <div className="projectTop">
                 <span>{project.category}</span>
                 <small>{project.year}</small>
               </div>
@@ -283,22 +245,15 @@ function App() {
               <h3>{project.title}</h3>
               <p>{project.desc}</p>
 
-              <div className="tech-tags">
+              <div className="techTags">
                 {project.tech.map((tech) => (
                   <span key={tech}>{tech}</span>
                 ))}
               </div>
 
-              <div className="project-links">
-                <a href={project.github} target="_blank" rel="noreferrer">
-                  <Github size={17} />
-                  GitHub
-                </a>
-
-                <a href={project.live} target="_blank" rel="noreferrer">
-                  <ExternalLink size={17} />
-                  Live Demo
-                </a>
+              <div className="projectLinks">
+                <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
+                <a href={project.live} target="_blank" rel="noreferrer">Live Demo</a>
               </div>
             </div>
           ))}
@@ -306,59 +261,55 @@ function App() {
       </section>
 
       <section id="experience" className="section">
-        <div className="section-header">
+        <div className="sectionHeader">
           <span>Experience</span>
           <h2>Learning & Growth Timeline</h2>
         </div>
 
         <div className="timeline">
-          <div className="timeline-item">
-            <div className="timeline-dot"></div>
+          <div className="timelineItem">
+            <div className="timelineDot"></div>
             <div>
               <h3>Data Science Internship Projects</h3>
               <p>
                 Worked on analytics dashboards, business insights, and
-                data-driven decision support projects using Python and
-                Streamlit.
+                data-driven decision support projects using Python and Streamlit.
               </p>
             </div>
           </div>
 
-          <div className="timeline-item">
-            <div className="timeline-dot"></div>
+          <div className="timelineItem">
+            <div className="timelineDot"></div>
             <div>
               <h3>GenAI Project Development</h3>
               <p>
                 Built LLM-based apps using LangChain, CrewAI, Groq API, and
-                Streamlit for content generation, career assistance, and AI
-                assistants.
+                Streamlit for content generation and AI assistants.
               </p>
             </div>
           </div>
 
-          <div className="timeline-item">
-            <div className="timeline-dot"></div>
+          <div className="timelineItem">
+            <div className="timelineDot"></div>
             <div>
               <h3>AI/ML Internship Preparation</h3>
               <p>
                 Creating strong portfolio projects, improving resume quality,
-                practicing interview explanations, and learning real-world AI
-                system design basics.
+                practicing interviews, and learning real-world AI system design.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section why-section">
-        <div className="section-header">
+      <section className="section whySection">
+        <div className="sectionHeader">
           <span>Why Hire Me?</span>
           <h2>What I Bring as an Intern</h2>
         </div>
 
-        <div className="why-grid">
+        <div className="whyGrid">
           <div>
-            <Award />
             <h3>Project-Based Learning</h3>
             <p>
               I build and deploy complete projects, not just notebooks, so
@@ -367,7 +318,6 @@ function App() {
           </div>
 
           <div>
-            <Rocket />
             <h3>Deployment Mindset</h3>
             <p>
               I use Streamlit Cloud, GitHub, and Vercel to turn ideas into live
@@ -376,7 +326,6 @@ function App() {
           </div>
 
           <div>
-            <Sparkles />
             <h3>AI Curiosity</h3>
             <p>
               I actively explore GenAI, agents, prompt engineering, and ML
@@ -386,8 +335,8 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="section contact-section">
-        <div className="contact-card">
+      <section id="contact" className="section contactSection">
+        <div className="contactCard">
           <h2>Let’s Connect</h2>
 
           <p>
@@ -395,21 +344,10 @@ function App() {
             Feel free to contact me for internships, projects, or collaboration.
           </p>
 
-          <div className="contact-buttons">
-            <a href={`mailto:${profile.email}`} className="primary-btn">
-              <Mail size={18} />
-              Email Me
-            </a>
-
-            <a href={profile.github} target="_blank" rel="noreferrer" className="secondary-btn">
-              <Github size={18} />
-              GitHub
-            </a>
-
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="secondary-btn">
-              <Link size={18} />
-              LinkedIn
-            </a>
+          <div className="contactButtons">
+            <a href={`mailto:${profile.email}`} className="primaryBtn">Email Me</a>
+            <a href={profile.github} target="_blank" rel="noreferrer" className="secondaryBtn">GitHub</a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="secondaryBtn">LinkedIn</a>
           </div>
         </div>
       </section>
