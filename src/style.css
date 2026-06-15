@@ -69,6 +69,36 @@ a { text-decoration: none; color: inherit; }
   transition: background 0.5s ease;
 }
 
+.starsLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.starsLayer span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 14px white, 0 0 28px var(--accent);
+  animation: starFloat 6s ease-in-out infinite;
+}
+
+.starsLayer span:nth-child(1) { left: 8%; top: 18%; animation-delay: 0s; }
+.starsLayer span:nth-child(2) { left: 28%; top: 9%; animation-delay: 1s; }
+.starsLayer span:nth-child(3) { left: 52%; top: 16%; animation-delay: 2s; }
+.starsLayer span:nth-child(4) { left: 74%; top: 10%; animation-delay: 1.5s; }
+.starsLayer span:nth-child(5) { left: 88%; top: 28%; animation-delay: 2.5s; }
+.starsLayer span:nth-child(6) { left: 18%; top: 72%; animation-delay: 3s; }
+
+@keyframes starFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.45; }
+  50% { transform: translateY(-18px) scale(1.7); opacity: 1; }
+}
+
 .navbar, .hero, .section, footer, .scrollingStrip, .quoteSection {
   position: relative;
   z-index: 1;
@@ -402,7 +432,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   gap: 18px;
   width: max-content;
-  animation: scrollStrip 24s linear infinite;
+  animation: scrollStrip 28s linear infinite;
 }
 
 .stripCard {
@@ -621,22 +651,34 @@ a { text-decoration: none; color: inherit; }
   white-space: nowrap;
 }
 
-.expPoint {
-  margin-top: 12px;
-  position: relative;
-  padding-left: 12px;
+.experiencePoints {
+  margin-top: 18px;
+  display: grid;
+  gap: 14px;
 }
 
-.expPoint::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 12px;
-  width: 5px;
-  height: 5px;
-  background: var(--accent);
+.expPoint {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.colorBullet {
+  width: 12px;
+  height: 12px;
+  margin-top: 8px;
   border-radius: 50%;
-  box-shadow: 0 0 12px var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+  box-shadow:
+    0 0 12px var(--accent),
+    0 0 24px color-mix(in srgb, var(--accent2) 50%, transparent);
+}
+
+.expPoint p {
+  margin: 0;
+  color: #dbeafe;
+  line-height: 1.65;
 }
 
 .learnedSkills { margin-top: 18px; }
@@ -658,8 +700,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .aiOrbit {
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   margin: auto;
   border-radius: 50%;
   border: 1px dashed color-mix(in srgb, var(--accent) 50%, transparent);
@@ -667,39 +709,105 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: slowRotate 18s linear infinite;
+  animation: slowRotate 22s linear infinite;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--accent) 15%, transparent), transparent 45%),
+    radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--accent3) 14%, transparent), transparent 35%);
+}
+
+.aiOrbit::before {
+  content: "";
+  position: absolute;
+  inset: 55px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent2) 35%, transparent);
+}
+
+.aiOrbit::after {
+  content: "";
+  position: absolute;
+  inset: 100px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--accent3) 35%, transparent);
 }
 
 .coreBrain {
-  width: 110px;
-  height: 110px;
+  width: 112px;
+  height: 112px;
   border-radius: 34px;
   background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 36px;
+  font-family: "Orbitron", "Space Grotesk", sans-serif;
+  font-size: 38px;
   font-weight: 900;
-  box-shadow: 0 0 50px color-mix(in srgb, var(--accent) 45%, transparent);
-  animation: reverseRotate 18s linear infinite;
+  box-shadow: 0 0 55px color-mix(in srgb, var(--accent) 48%, transparent);
+  animation: reverseRotate 22s linear infinite;
+  z-index: 2;
+}
+
+.coreBrain span {
+  background: linear-gradient(135deg, #ffffff, #dbeafe);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .node {
   position: absolute;
   padding: 9px 13px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
   font-family: "JetBrains Mono", monospace;
   color: #e2e8f0;
-  animation: reverseRotate 18s linear infinite;
+  animation: reverseRotate 22s linear infinite, nodeGlow 2.8s ease-in-out infinite;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 24%, transparent);
+  z-index: 3;
 }
 
-.node1 { top: 10px; left: 118px; }
-.node2 { right: -10px; top: 140px; }
-.node3 { bottom: 10px; left: 116px; }
-.node4 { left: -10px; top: 140px; }
+.node1 { top: 8px; left: 146px; }
+.node2 { top: 50px; right: 28px; }
+.node3 { top: 140px; right: -18px; }
+.node4 { bottom: 58px; right: 26px; }
+.node5 { bottom: 8px; left: 142px; }
+.node6 { bottom: 58px; left: 22px; }
+.node7 { top: 140px; left: -15px; }
+.node8 { top: 50px; left: 24px; }
+.node9 { top: 92px; left: 142px; }
+.node10 { bottom: 92px; left: 138px; }
+
+.node:nth-child(odd) {
+  color: #bae6fd;
+}
+
+.node:nth-child(even) {
+  color: #fbcfe8;
+}
+
+@keyframes nodeGlow {
+  0%, 100% { box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 22%, transparent); }
+  50% { box-shadow: 0 0 28px color-mix(in srgb, var(--accent3) 45%, transparent); }
+}
+
+.star {
+  position: absolute;
+  font-style: normal;
+  color: #ffffff;
+  text-shadow: 0 0 14px white, 0 0 30px var(--accent);
+  animation: reverseRotate 22s linear infinite, starTwinkle 1.7s ease-in-out infinite;
+  z-index: 4;
+}
+
+.star1 { top: 70px; left: 108px; }
+.star2 { right: 82px; top: 116px; animation-delay: 0.4s; }
+.star3 { bottom: 82px; right: 110px; animation-delay: 0.8s; }
+.star4 { left: 88px; bottom: 118px; animation-delay: 1.2s; }
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
 
 @keyframes slowRotate { to { transform: rotate(360deg); } }
 @keyframes reverseRotate { to { transform: rotate(-360deg); } }
@@ -956,9 +1064,25 @@ footer {
   .typingBox { font-size: 18px; }
 
   .aiOrbit {
-    width: 270px;
-    height: 270px;
+    width: 300px;
+    height: 300px;
   }
+
+  .node {
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+
+  .node1 { top: 4px; left: 118px; }
+  .node2 { top: 40px; right: 18px; }
+  .node3 { top: 118px; right: -12px; }
+  .node4 { bottom: 45px; right: 20px; }
+  .node5 { bottom: 5px; left: 116px; }
+  .node6 { bottom: 45px; left: 16px; }
+  .node7 { top: 118px; left: -12px; }
+  .node8 { top: 40px; left: 20px; }
+  .node9 { top: 80px; left: 115px; }
+  .node10 { bottom: 80px; left: 112px; }
 }
 
 @media (max-width: 680px) {
@@ -985,5 +1109,21 @@ footer {
   .profileFrame {
     width: 220px;
     height: 220px;
+  }
+
+  .aiOrbit {
+    width: 260px;
+    height: 260px;
+  }
+
+  .coreBrain {
+    width: 90px;
+    height: 90px;
+    font-size: 30px;
+  }
+
+  .node {
+    font-size: 10px;
+    padding: 6px 8px;
   }
 }
