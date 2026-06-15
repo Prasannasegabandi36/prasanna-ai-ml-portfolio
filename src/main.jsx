@@ -28,8 +28,8 @@ const themeMap = {
 
 const typingSentences = [
   "I design AI tools that are practical, simple, and useful.",
-  "I convert ML ideas into deployed Streamlit and web applications.",
-  "I explore Data Science, GenAI, Agentic AI, and healthcare AI solutions.",
+  "I convert machine learning ideas into deployed web applications.",
+  "I explore Data Science, GenAI, Agentic AI, and Healthcare AI solutions.",
   "I am open to AI/ML, Data Science, and GenAI internship opportunities."
 ];
 
@@ -39,21 +39,21 @@ const education = [
     institute: "Indian Institute of Technology, Guwahati",
     score: "CGPA: 7.53",
     year: "2023 - Present",
-    note: "Building a foundation in mathematics, computing, machine learning, and applied AI."
+    note: "Building a strong base in mathematics, computing, machine learning, deep learning, and applied AI."
   },
   {
     degree: "Senior Secondary",
     institute: "Board of Intermediate Education, Andhra Pradesh",
     score: "90.0%",
     year: "2021",
-    note: "Focused on science fundamentals and problem-solving."
+    note: "Focused on science fundamentals, logical thinking, and academic consistency."
   },
   {
     degree: "Secondary",
     institute: "Board of Secondary Education, Andhra Pradesh",
     score: "93.0%",
     year: "2019",
-    note: "Developed academic discipline and consistent learning habits."
+    note: "Developed discipline, learning habits, and interest in problem solving."
   }
 ];
 
@@ -62,22 +62,22 @@ const experience = [
     role: "Data Science Intern",
     company: "Unified Mentor",
     year: "2026 - Present",
-    highlight: "Analytics dashboards, KPI insights, and business decision support.",
+    highlight: "Data dashboards, KPI analysis, and business insight generation.",
     points: [
-      "Worked on business analytics projects where raw data was converted into dashboards, KPIs, and visual insights.",
-      "Created Streamlit-based dashboards for customer retention, shipping performance, order trends, and operational analysis.",
-      "Practiced the complete data workflow: cleaning, exploration, visualization, storytelling, and deployment."
+      "Converted raw business datasets into clear dashboards that explain customer behavior, shipping trends, and operational performance.",
+      "Created Streamlit analytics applications using Python, Pandas, Matplotlib, and Plotly to make insights easy to explore.",
+      "Practiced the full data workflow from cleaning and exploration to visualization, storytelling, and deployment."
     ]
   },
   {
     role: "AI/ML Intern",
     company: "Micro Information Technology Services",
     year: "2025",
-    highlight: "NLP sentiment classification and real-time ML web interface.",
+    highlight: "NLP sentiment analysis and real-time ML application development.",
     points: [
-      "Built an NLP sentiment analysis application to classify user text into meaningful sentiment categories.",
-      "Applied preprocessing, feature extraction, model prediction, and Streamlit deployment for a usable ML interface.",
-      "Strengthened my understanding of how ML models can be presented as simple applications for end users."
+      "Built an NLP-based sentiment analysis app to classify text into positive, negative, and neutral categories.",
+      "Used preprocessing, feature extraction, model prediction, and Streamlit deployment to create a usable ML interface.",
+      "Improved my understanding of how machine learning models can be turned into simple applications for real users."
     ]
   }
 ];
@@ -119,7 +119,7 @@ const researchDomains = [
   {
     icon: "🏥",
     title: "Healthcare AI",
-    desc: "AI tools for medicine awareness, OCR prescription reading, and patient-friendly explanations."
+    desc: "AI tools for medicine awareness, OCR prescription reading, and patient-friendly health explanations."
   },
   {
     icon: "🧬",
@@ -594,7 +594,7 @@ function App() {
       <section id="contact" className="section contactSection">
         <div className="sectionHeader">
           <span>Contact</span>
-          <h2>Let’s build something meaningful</h2>
+          <h2>Let’s connect and build something useful</h2>
         </div>
 
         <div className="contactLayout">
@@ -603,56 +603,76 @@ function App() {
               <span></span>
               <span></span>
               <span></span>
-              <p>prasanna@portfolio:message</p>
+              <p>prasanna@portfolio:~</p>
             </div>
 
             <label>
-              <small>visitor.name</small>
+              <small>~/name</small>
               <input
                 type="text"
-                placeholder="Enter your name"
+                placeholder="your name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
             </label>
 
             <label>
-              <small>visitor.email</small>
+              <small>~/email</small>
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="you@domain.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
             </label>
 
             <label>
-              <small>visitor.message</small>
+              <small>~/message</small>
               <textarea
-                placeholder="Write your message for internship, project, or collaboration..."
+                placeholder="echo 'hello prasanna...'"
                 rows="5"
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               ></textarea>
             </label>
 
-            <button type="submit">Send Portfolio Message</button>
+            <button type="submit">send message</button>
           </form>
 
-          <div className="contactSide">
+          <div className="contactSide socialBoard">
             <h3>Find me online</h3>
-            <p>
-              I am open to internship opportunities, project collaboration,
-              portfolio feedback, and AI/ML learning discussions.
-            </p>
 
-            <div className="contactLinks">
-              <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href={profile.medium} target="_blank" rel="noreferrer">Medium</a>
-              <a href={`mailto:${profile.email}`}>Mail</a>
-              <a href={profile.resume} target="_blank" rel="noreferrer">Resume</a>
-            </div>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="socialCard">
+              <div className="socialLogo linkedinLogo">in</div>
+              <div>
+                <span>LinkedIn</span>
+                <p>Segabandi Prasanna Rani</p>
+              </div>
+            </a>
+
+            <a href={profile.github} target="_blank" rel="noreferrer" className="socialCard">
+              <div className="socialLogo githubLogo">GH</div>
+              <div>
+                <span>GitHub</span>
+                <p>Prasannasegabandi36</p>
+              </div>
+            </a>
+
+            <a href={profile.medium} target="_blank" rel="noreferrer" className="socialCard">
+              <div className="socialLogo mediumLogo">M</div>
+              <div>
+                <span>Medium</span>
+                <p>@prasannasegabandi</p>
+              </div>
+            </a>
+
+            <a href={`mailto:${profile.email}`} className="socialCard">
+              <div className="socialLogo mailLogo">@</div>
+              <div>
+                <span>Email</span>
+                <p>prasannasegabandi@gmail.com</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
