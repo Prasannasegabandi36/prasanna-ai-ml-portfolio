@@ -19,18 +19,18 @@ const themeMap = {
   about: "theme-purple",
   education: "theme-blue",
   experience: "theme-pink",
-  skills: "theme-green",
+  skills: "theme-red",
   research: "theme-orange",
-  projects: "theme-cyan",
-  certificates: "theme-purple",
-  contact: "theme-pink"
+  projects: "theme-green",
+  certificates: "theme-violet",
+  contact: "theme-gold"
 };
 
 const typingSentences = [
-  "I design AI tools that are practical, simple, and useful.",
-  "I convert machine learning ideas into deployed web applications.",
-  "I explore Data Science, GenAI, Agentic AI, and Healthcare AI solutions.",
-  "I am open to AI/ML, Data Science, and GenAI internship opportunities."
+  "I build AI tools that are simple, useful, and deployable.",
+  "I convert machine learning ideas into real web applications.",
+  "I explore Data Science, GenAI, Agentic AI, and Healthcare AI.",
+  "I am building my portfolio one practical project at a time."
 ];
 
 const education = [
@@ -39,21 +39,21 @@ const education = [
     institute: "Indian Institute of Technology, Guwahati",
     score: "CGPA: 7.53",
     year: "2023 - Present",
-    note: "Building a strong base in mathematics, computing, machine learning, deep learning, and applied AI."
+    note: "Learning mathematics, computing, data science, machine learning, deep learning, and applied AI."
   },
   {
     degree: "Senior Secondary",
     institute: "Board of Intermediate Education, Andhra Pradesh",
     score: "90.0%",
     year: "2021",
-    note: "Focused on science fundamentals, logical thinking, and academic consistency."
+    note: "Built strong academic fundamentals and interest in analytical problem solving."
   },
   {
     degree: "Secondary",
     institute: "Board of Secondary Education, Andhra Pradesh",
     score: "93.0%",
     year: "2019",
-    note: "Developed discipline, learning habits, and interest in problem solving."
+    note: "Developed consistency, discipline, and curiosity toward learning."
   }
 ];
 
@@ -62,22 +62,22 @@ const experience = [
     role: "Data Science Intern",
     company: "Unified Mentor",
     year: "2026 - Present",
-    highlight: "Data dashboards, KPI analysis, and business insight generation.",
+    highlight: "Business dashboards, KPI storytelling, and analytics deployment.",
     points: [
-      "Converted raw business datasets into clear dashboards that explain customer behavior, shipping trends, and operational performance.",
-      "Created Streamlit analytics applications using Python, Pandas, Matplotlib, and Plotly to make insights easy to explore.",
-      "Practiced the full data workflow from cleaning and exploration to visualization, storytelling, and deployment."
+      "Converted raw business datasets into dashboards that explain customer behavior, shipping trends, and operational performance.",
+      "Built Streamlit analytics applications using Python, Pandas, Matplotlib, and Plotly.",
+      "Practiced data cleaning, exploration, visualization, insight writing, and deployment."
     ]
   },
   {
     role: "AI/ML Intern",
     company: "Micro Information Technology Services",
     year: "2025",
-    highlight: "NLP sentiment analysis and real-time ML application development.",
+    highlight: "NLP sentiment analysis and real-time ML web application.",
     points: [
-      "Built an NLP-based sentiment analysis app to classify text into positive, negative, and neutral categories.",
-      "Used preprocessing, feature extraction, model prediction, and Streamlit deployment to create a usable ML interface.",
-      "Improved my understanding of how machine learning models can be turned into simple applications for real users."
+      "Created an NLP sentiment analysis app to classify user text into positive, negative, and neutral categories.",
+      "Used text preprocessing, feature extraction, model prediction, and Streamlit interface development.",
+      "Learned how ML models can be converted into simple usable applications."
     ]
   }
 ];
@@ -119,7 +119,7 @@ const researchDomains = [
   {
     icon: "🏥",
     title: "Healthcare AI",
-    desc: "AI tools for medicine awareness, OCR prescription reading, and patient-friendly health explanations."
+    desc: "AI tools for medicine awareness, prescription reading, and simple health explanations."
   },
   {
     icon: "🧬",
@@ -129,22 +129,22 @@ const researchDomains = [
   {
     icon: "🛒",
     title: "AI Commerce",
-    desc: "Agentic shopping assistants, recommendation workflows, and product search automation."
+    desc: "Shopping assistants, product recommendations, and product search automation."
   },
   {
     icon: "📈",
     title: "Business Analytics",
-    desc: "Dashboards that explain churn, shipping performance, KPIs, and operational decisions."
+    desc: "Dashboards for churn, shipping performance, KPIs, and business decisions."
   },
   {
     icon: "📝",
     title: "NLP & Content AI",
-    desc: "Sentiment analysis, LinkedIn post generation, text classification, and writing assistants."
+    desc: "Sentiment analysis, LinkedIn post generation, text classification, and writing tools."
   },
   {
     icon: "🤝",
     title: "Agentic AI",
-    desc: "Multi-agent workflows for resume analysis, job matching, skill planning, and guidance."
+    desc: "Multi-agent workflows for resume analysis, job matching, and skill planning."
   }
 ];
 
@@ -166,8 +166,8 @@ const projects = [
     year: "2026",
     image: "💊",
     tech: ["Python", "Streamlit", "OCR", "AI Summary"],
-    desc: "A healthcare awareness app that helps users understand medicine uses, precautions, safety notes, and prescription content in simple language.",
-    impact: "Focused on making medicine information easier to understand for non-technical users.",
+    desc: "A healthcare awareness app that explains medicine uses, precautions, safety notes, and prescription content in simple language.",
+    impact: "Built to make medicine information easier for non-technical users.",
     github: "https://github.com/Prasannasegabandi36/ai-medicine-safety-assistant",
     live: "https://ai-medicine-safety-assistant.streamlit.app/"
   },
@@ -177,8 +177,8 @@ const projects = [
     year: "2026",
     image: "🤝",
     tech: ["CrewAI", "Groq API", "Streamlit"],
-    desc: "A multi-agent career guidance system that analyzes resumes, matches jobs, finds skill gaps, and generates interview preparation guidance.",
-    impact: "Shows my interest in agentic AI and practical workflow automation.",
+    desc: "A career guidance system that uses agents for resume review, job matching, skill gap planning, and interview guidance.",
+    impact: "Shows practical agentic AI workflow design.",
     github: "https://github.com/Prasannasegabandi36/multi-agent-ai-career-assistant",
     live: "https://multi-agent-ai-career-assistant-rerompyd6ykpxbknrkdisb.streamlit.app/"
   },
@@ -188,8 +188,8 @@ const projects = [
     year: "2026",
     image: "🛒",
     tech: ["LangChain", "Groq API", "SQLite", "Streamlit"],
-    desc: "An AI-powered shopping assistant for product search, image-based queries, review lookup, and checkout simulation.",
-    impact: "Combines GenAI with a real shopping workflow experience.",
+    desc: "An AI shopping assistant for product search, image-based queries, review lookup, and checkout simulation.",
+    impact: "Connects GenAI with a shopping workflow.",
     github: "https://github.com/Prasannasegabandi36/AI-Shopping-Assistant",
     live: "#"
   },
@@ -199,8 +199,8 @@ const projects = [
     year: "2025",
     image: "✍️",
     tech: ["LangChain", "Groq API", "Streamlit"],
-    desc: "A content automation tool that generates professional LinkedIn posts from selected or custom topics using LLM prompts.",
-    impact: "Useful for students and professionals who want quick content drafts.",
+    desc: "A content automation tool that generates professional LinkedIn posts from selected or custom topics.",
+    impact: "Useful for students and professionals who need quick content drafts.",
     github: "https://github.com/Prasannasegabandi36/linkedin-post-generator",
     live: "https://linkedin-post-generator-4r24kesjtr6cwqrogdwlrv.streamlit.app/"
   },
@@ -211,7 +211,7 @@ const projects = [
     image: "💬",
     tech: ["Python", "NLP", "Scikit-learn", "Streamlit"],
     desc: "A real-time NLP application that classifies text sentiment as positive, negative, or neutral.",
-    impact: "Demonstrates ML pipeline understanding from preprocessing to deployment.",
+    impact: "Demonstrates ML workflow from preprocessing to deployment.",
     github: "https://github.com/Prasannasegabandi36/NLP-Sentiment-Analysis-Streamlit",
     live: "https://nlp-sentiment-analysis-app-ltibii22sappryq93zfxnfq.streamlit.app/"
   },
@@ -221,8 +221,8 @@ const projects = [
     year: "2025",
     image: "📦",
     tech: ["Python", "Pandas", "Matplotlib", "Streamlit"],
-    desc: "A business analytics dashboard for shipping cost, factory allocation, order trends, and regional performance insights.",
-    impact: "Shows my ability to convert business data into decision-ready dashboards.",
+    desc: "A business analytics dashboard for shipping cost, factory allocation, order trends, and regional performance.",
+    impact: "Shows how data can be converted into decision-ready dashboards.",
     github: "https://github.com/Prasannasegabandi36/Nassau-Candy-Distributor",
     live: "https://candy-shipping-analysis.streamlit.app/"
   }
@@ -248,6 +248,46 @@ const courses = [
   "Recommendation System Design Using Deep Learning",
   "Pattern Recognition and Machine Learning"
 ];
+
+function GitHubLogo() {
+  return (
+    <svg viewBox="0 0 24 24" className="realIcon">
+      <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.12-1.52-1.12-1.52-.91-.64.07-.63.07-.63 1.01.07 1.54 1.06 1.54 1.06.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 7c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.26C22 6.58 17.52 2 12 2z" />
+    </svg>
+  );
+}
+
+function LinkedInLogo() {
+  return (
+    <svg viewBox="0 0 24 24" className="realIcon">
+      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.85c0-1.87-.03-4.28-2.6-4.28-2.6 0-3 2.03-3 4.14V23h-4V8z" />
+    </svg>
+  );
+}
+
+function MediumLogo() {
+  return (
+    <svg viewBox="0 0 24 24" className="realIcon">
+      <path d="M4.5 6.5c0-.55-.21-1.03-.62-1.42L3.42 4.6V4h5.2l4.02 8.82L16.18 4H21v.6l-.39.37c-.33.25-.49.62-.47 1.1v11.86c-.02.48.14.85.47 1.1l.39.37v.6h-6.8v-.6l.4-.38c.39-.38.39-.49.39-1.1V8.34L10.7 20h-1.1L4.6 8.34v8.06c-.1.9.2 1.78.82 2.43l.54.57v.6H1v-.6l.54-.57c.6-.65.86-1.53.78-2.43V6.5h2.18z" />
+    </svg>
+  );
+}
+
+function MailLogo() {
+  return (
+    <svg viewBox="0 0 24 24" className="realIcon">
+      <path d="M3 5h18c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2zm9 8.2L3.6 7.4V17h16.8V7.4L12 13.2zm0-2.4L19.2 7H4.8L12 10.8z" />
+    </svg>
+  );
+}
+
+function ResumeLogo() {
+  return (
+    <svg viewBox="0 0 24 24" className="realIcon">
+      <path d="M6 2h9l5 5v15H6V2zm8 1.8V8h4.2L14 3.8zM8 11h8v2H8v-2zm0 4h8v2H8v-2z" />
+    </svg>
+  );
+}
 
 function App() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -324,7 +364,7 @@ function App() {
 
       <section id="home" className="hero">
         <div className="heroContent">
-          <div className="badge">✨ AI/ML • Data Science • GenAI • Internship Ready</div>
+          <div className="badge">✨ AI/ML • Data Science • GenAI • Portfolio Mode</div>
 
           <h1>
             Hi, I am <span>{profile.name}</span>
@@ -347,8 +387,8 @@ function App() {
 
           <p>
             I am pursuing BSc (Hons) in Data Science and Artificial Intelligence
-            at IIT Guwahati. I enjoy building AI projects that are not only
-            technical, but also useful, understandable, and deployable.
+            at IIT Guwahati. I enjoy building AI projects that are useful,
+            understandable, and deployable.
           </p>
 
           <div className="heroButtons">
@@ -374,7 +414,7 @@ function App() {
           </div>
 
           <div className="profileCaption">
-            <span>AI/ML Portfolio</span>
+            <span>AI Portfolio System</span>
             <p>Data Science • GenAI • Practical Projects</p>
           </div>
         </div>
@@ -391,7 +431,14 @@ function App() {
         </div>
       </div>
 
-      <section id="about" className="section">
+      <section className="quoteSection">
+        <p>
+          "First make it work, then make it intelligent."
+          <span>// PRASANNA_AI</span>
+        </p>
+      </section>
+
+      <section id="about" className="section sectionAbout">
         <div className="sectionHeader">
           <span>About Me</span>
           <h2>Building practical AI solutions with curiosity and purpose</h2>
@@ -402,36 +449,35 @@ function App() {
             <h3>Who I Am</h3>
             <p>
               I am Prasanna Rani, a Data Science and Artificial Intelligence student at
-              IIT Guwahati. I enjoy learning by building projects, especially in AI/ML,
-              GenAI, NLP, healthcare awareness, and analytics dashboards.
+              IIT Guwahati. I enjoy learning by building projects in AI/ML, GenAI,
+              NLP, healthcare awareness, and analytics dashboards.
             </p>
             <p>
-              My goal is to create simple and useful AI applications that can be tested
-              by real users, not just kept as notebook experiments.
+              My goal is to create useful AI applications that can be tested by real users,
+              not just kept as notebook experiments.
             </p>
           </div>
 
           <div className="aboutBox">
             <h3>How I Build</h3>
             <p>
-              I usually start with a real problem, understand the user need, prepare the
-              data or AI workflow, build the model or logic, and deploy it using tools
-              like Streamlit, GitHub, and Vercel.
+              I start with a problem, understand the user need, design the AI or data
+              workflow, build the logic, and deploy it using tools like Streamlit,
+              GitHub, and Vercel.
             </p>
           </div>
 
           <div className="aboutBox">
             <h3>Current Direction</h3>
             <p>
-              I am focusing on AI/ML internship preparation, stronger GenAI projects,
-              agentic workflows, practical dashboards, and research-oriented healthcare
-              AI ideas.
+              I am focusing on stronger GenAI projects, agentic workflows,
+              practical dashboards, and research-oriented healthcare AI ideas.
             </p>
           </div>
         </div>
       </section>
 
-      <section id="education" className="section">
+      <section id="education" className="section sectionEducation">
         <div className="sectionHeader">
           <span>Education</span>
           <h2>Academic Journey</h2>
@@ -450,10 +496,10 @@ function App() {
         </div>
       </section>
 
-      <section id="experience" className="section">
+      <section id="experience" className="section sectionExperience">
         <div className="sectionHeader">
           <span>Experience</span>
-          <h2>Internship Work</h2>
+          <h2>Work I Practiced Through Internships</h2>
         </div>
 
         <div className="experienceGrid">
@@ -477,7 +523,7 @@ function App() {
         </div>
       </section>
 
-      <section id="skills" className="section">
+      <section id="skills" className="section sectionSkills">
         <div className="sectionHeader">
           <span>Skills</span>
           <h2>Skill Stack</h2>
@@ -499,7 +545,7 @@ function App() {
         </div>
       </section>
 
-      <section id="research" className="section">
+      <section id="research" className="section sectionResearch">
         <div className="sectionHeader">
           <span>Research Interests</span>
           <h2>Domains I Want to Explore</h2>
@@ -516,7 +562,7 @@ function App() {
         </div>
       </section>
 
-      <section id="projects" className="section">
+      <section id="projects" className="section sectionProjects">
         <div className="sectionHeader">
           <span>Projects</span>
           <h2>Featured Work</h2>
@@ -564,10 +610,10 @@ function App() {
         </div>
       </section>
 
-      <section id="certificates" className="section">
+      <section id="certificates" className="section sectionCertificates">
         <div className="sectionHeader">
           <span>Certificates & Courses</span>
-          <h2>Relevant Learning</h2>
+          <h2>Learning Blocks That Shape My AI Path</h2>
         </div>
 
         <div className="certificateWrapper">
@@ -591,7 +637,7 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="section contactSection">
+      <section id="contact" className="section sectionContact contactSection">
         <div className="sectionHeader">
           <span>Contact</span>
           <h2>Let’s connect and build something useful</h2>
@@ -603,47 +649,47 @@ function App() {
               <span></span>
               <span></span>
               <span></span>
-              <p>prasanna@portfolio:~</p>
+              <p>prasanna.contact()</p>
             </div>
 
             <label>
-              <small>~/name</small>
+              <small>Your Name</small>
               <input
                 type="text"
-                placeholder="your name"
+                placeholder="Enter your name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
             </label>
 
             <label>
-              <small>~/email</small>
+              <small>Your Email</small>
               <input
                 type="email"
-                placeholder="you@domain.com"
+                placeholder="Enter your email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
             </label>
 
             <label>
-              <small>~/message</small>
+              <small>Your Message</small>
               <textarea
-                placeholder="echo 'hello prasanna...'"
+                placeholder="Write your message for collaboration, project feedback, or opportunity..."
                 rows="5"
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               ></textarea>
             </label>
 
-            <button type="submit">send message</button>
+            <button type="submit">Send Message</button>
           </form>
 
           <div className="contactSide socialBoard">
             <h3>Find me online</h3>
 
             <a href={profile.linkedin} target="_blank" rel="noreferrer" className="socialCard">
-              <div className="socialLogo linkedinLogo">in</div>
+              <div className="socialLogo linkedinLogo"><LinkedInLogo /></div>
               <div>
                 <span>LinkedIn</span>
                 <p>Segabandi Prasanna Rani</p>
@@ -651,7 +697,7 @@ function App() {
             </a>
 
             <a href={profile.github} target="_blank" rel="noreferrer" className="socialCard">
-              <div className="socialLogo githubLogo">GH</div>
+              <div className="socialLogo githubLogo"><GitHubLogo /></div>
               <div>
                 <span>GitHub</span>
                 <p>Prasannasegabandi36</p>
@@ -659,7 +705,7 @@ function App() {
             </a>
 
             <a href={profile.medium} target="_blank" rel="noreferrer" className="socialCard">
-              <div className="socialLogo mediumLogo">M</div>
+              <div className="socialLogo mediumLogo"><MediumLogo /></div>
               <div>
                 <span>Medium</span>
                 <p>@prasannasegabandi</p>
@@ -667,10 +713,18 @@ function App() {
             </a>
 
             <a href={`mailto:${profile.email}`} className="socialCard">
-              <div className="socialLogo mailLogo">@</div>
+              <div className="socialLogo mailLogo"><MailLogo /></div>
               <div>
                 <span>Email</span>
                 <p>prasannasegabandi@gmail.com</p>
+              </div>
+            </a>
+
+            <a href={profile.resume} target="_blank" rel="noreferrer" className="socialCard">
+              <div className="socialLogo resumeLogo"><ResumeLogo /></div>
+              <div>
+                <span>Resume</span>
+                <p>Download PDF</p>
               </div>
             </a>
           </div>
@@ -678,7 +732,7 @@ function App() {
       </section>
 
       <footer>
-        <p>© 2026 {profile.name}. Designed for AI/ML internship opportunities.</p>
+        <p>© 2026 Prasanna Rani — coded with curiosity, trained by projects, deployed with dreams.</p>
       </footer>
     </div>
   );
