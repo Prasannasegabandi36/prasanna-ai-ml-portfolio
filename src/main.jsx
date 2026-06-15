@@ -271,6 +271,57 @@ const courses = [
   "Pattern Recognition and Machine Learning"
 ];
 
+const chatbotKnowledge = {
+  about:
+    "Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, NLP, GenAI, and analytics projects.",
+  education:
+    "Prasanna is pursuing BSc (Hons) in Data Science and Artificial Intelligence at IIT Guwahati with a current CGPA of 7.53. She completed Senior Secondary with 90.0% and Secondary with 93.0%.",
+  skills:
+    "Her skills include Python, SQL, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn, NLTK, TextBlob, Streamlit, LangChain, CrewAI, Groq API, RAG basics, Git, GitHub, VS Code, Jupyter, and Google Colab.",
+  projects:
+    "Her major projects include AI Medicine Safety Assistant, Multi-Agent AI Career Assistant, AI Shopping Assistant, LinkedIn Post Generator, NLP Sentiment Analysis App, and Nassau Candy Distributor Analytics.",
+  experience:
+    "She worked on Data Science work with Unified Mentor and AI/ML project work with Micro Information Technology Services. Her work includes dashboards, KPI analysis, sentiment analysis, and Streamlit-based ML applications.",
+  contact:
+    "You can contact Prasanna through email at prasannasegabandi@gmail.com, GitHub at Prasannasegabandi36, LinkedIn at Segabandi Prasanna Rani, and Medium at @prasannasegabandi.",
+  research:
+    "Her interest domains include Healthcare AI, Medical Imaging, NLP, Content AI, Business Analytics, AI Commerce, Agentic AI, and practical AI tools."
+};
+
+function getBotReply(message) {
+  const text = message.toLowerCase();
+
+  if (text.includes("about") || text.includes("who") || text.includes("prasanna")) {
+    return chatbotKnowledge.about;
+  }
+
+  if (text.includes("education") || text.includes("study") || text.includes("college") || text.includes("iit")) {
+    return chatbotKnowledge.education;
+  }
+
+  if (text.includes("skill") || text.includes("tools") || text.includes("technology") || text.includes("tech")) {
+    return chatbotKnowledge.skills;
+  }
+
+  if (text.includes("project") || text.includes("work") || text.includes("built")) {
+    return chatbotKnowledge.projects;
+  }
+
+  if (text.includes("experience") || text.includes("company")) {
+    return chatbotKnowledge.experience;
+  }
+
+  if (text.includes("contact") || text.includes("email") || text.includes("linkedin") || text.includes("github")) {
+    return chatbotKnowledge.contact;
+  }
+
+  if (text.includes("research") || text.includes("domain") || text.includes("interest")) {
+    return chatbotKnowledge.research;
+  }
+
+  return "I can answer questions about Prasanna’s education, skills, projects, experience, research interests, and contact details. Try asking: What projects has Prasanna built?";
+}
+
 function GitHubLogo() {
   return (
     <svg viewBox="0 0 24 24" className="realIcon">
@@ -324,6 +375,15 @@ function App() {
     message: ""
   });
 
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+  const [chatMessages, setChatMessages] = useState([
+    {
+      sender: "bot",
+      text: "Hi, I am Ask Prasanna AI. You can ask me about Prasanna’s projects, skills, education, experience, research interests, or contact details."
+    }
+  ]);
+
   const categories = ["All", "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
 
   const filteredProjects =
@@ -343,6 +403,39 @@ function App() {
     const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
 
     window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const handleChatSubmit = (event) => {
+    event.preventDefault();
+
+    if (!chatInput.trim()) return;
+
+    const userMessage = {
+      sender: "user",
+      text: chatInput
+    };
+
+    const botMessage = {
+      sender: "bot",
+      text: getBotReply(chatInput)
+    };
+
+    setChatMessages((prev) => [...prev, userMessage, botMessage]);
+    setChatInput("");
+  };
+
+  const quickAsk = (question) => {
+    const userMessage = {
+      sender: "user",
+      text: question
+    };
+
+    const botMessage = {
+      sender: "bot",
+      text: getBotReply(question)
+    };
+
+    setChatMessages((prev) => [...prev, userMessage, botMessage]);
   };
 
   useEffect(() => {
@@ -808,6 +901,53 @@ function App() {
           </div>
         </div>
       </section>
+
+      <div className="resumeChatbot">
+        {chatOpen && (
+          <div className="chatWindow">
+            <div className="chatHeader">
+              <div>
+                <h3>Ask Prasanna AI</h3>
+                <p>Resume-aware assistant</p>
+              </div>
+              <button onClick={() => setChatOpen(false)}>×</button>
+            </div>
+
+            <div className="quickQuestions">
+              <button onClick={() => quickAsk("Tell me about Prasanna")}>About</button>
+              <button onClick={() => quickAsk("What are Prasanna's skills?")}>Skills</button>
+              <button onClick={() => quickAsk("What projects has Prasanna built?")}>Projects</button>
+              <button onClick={() => quickAsk("What is Prasanna's experience?")}>Experience</button>
+              <button onClick={() => quickAsk("How can I contact Prasanna?")}>Contact</button>
+            </div>
+
+            <div className="chatMessages">
+              {chatMessages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={msg.sender === "bot" ? "botMessage" : "userMessage"}
+                >
+                  {msg.text}
+                </div>
+              ))}
+            </div>
+
+            <form className="chatInputBox" onSubmit={handleChatSubmit}>
+              <input
+                type="text"
+                placeholder="Ask about my resume..."
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+              />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        )}
+
+        <button className="chatToggle" onClick={() => setChatOpen(!chatOpen)}>
+          {chatOpen ? "×" : "🤖 Ask Resume AI"}
+        </button>
+      </div>
 
       <footer>
         <p>© 2026 Prasanna Rani — built with data, curiosity & neural sparks.</p>
