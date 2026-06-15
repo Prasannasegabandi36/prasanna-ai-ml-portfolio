@@ -135,6 +135,14 @@ footer,
   color: var(--accent);
 }
 
+.activeNav {
+  color: white !important;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  padding: 8px 13px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
 .hero {
   width: 92%;
   max-width: 1250px;
@@ -351,7 +359,7 @@ footer,
 
 .profilePanel {
   position: relative;
-  padding: 30px;
+  padding: 26px;
   border-radius: 36px;
   background: linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.55));
   border: 1px solid rgba(148, 163, 184, 0.25);
@@ -383,64 +391,46 @@ footer,
 }
 
 .profileFrame {
-  width: 260px;
-  height: 260px;
+  width: 270px;
+  height: 270px;
   margin: auto;
   border-radius: 34px;
   padding: 7px;
   background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
   box-shadow: 0 0 55px color-mix(in srgb, var(--accent) 38%, transparent);
-  animation: profileFloat 4s ease-in-out infinite;
+  animation: none;
 }
 
 .profileFrame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 28px;
   display: block;
+  background: #0f172a;
 }
 
-@keyframes profileFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(1.5deg); }
-}
-
-.profileInfoCard h3 {
-  margin-top: 26px;
-  font-size: 27px;
-}
-
-.profileInfoCard p {
-  color: #94a3b8;
-  margin-top: 8px;
-}
-
-.statsGrid {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.statsGrid div {
-  padding: 18px 10px;
-  border-radius: 18px;
-  background: rgba(30, 41, 59, 0.86);
+.profileCaption {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
   border: 1px solid rgba(148, 163, 184, 0.18);
 }
 
-.statsGrid strong {
-  display: block;
+.profileCaption span {
   color: var(--accent);
-  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
 }
 
-.statsGrid span {
-  display: block;
-  margin-top: 5px;
-  font-size: 12px;
+.profileCaption p {
+  margin-top: 8px;
   color: #cbd5e1;
+  font-size: 15px;
 }
 
 .scrollingStrip {
@@ -511,19 +501,14 @@ footer,
 
 .aboutBento {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-}
-
-.bigBox {
-  grid-row: span 2;
 }
 
 .aboutBox,
 .skillCard,
 .projectCard,
 .researchCard,
-.whyGrid div,
 .contactCard,
 .educationCard,
 .experienceCard,
@@ -539,6 +524,10 @@ footer,
   transition: 0.28s ease;
   position: relative;
   overflow: hidden;
+}
+
+.aboutBox {
+  min-height: 260px;
 }
 
 .aboutBox:hover,
@@ -574,13 +563,13 @@ footer,
 .contactCard p {
   color: #cbd5e1;
   line-height: 1.75;
+  margin-top: 12px;
 }
 
 .skillsGrid,
 .projectsGrid,
 .researchGrid,
-.educationGrid,
-.whyGrid {
+.educationGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -786,6 +775,8 @@ footer,
   color: var(--accent);
   font-weight: 900;
   margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .terminalContact input,
@@ -811,10 +802,16 @@ footer,
   padding: 14px 18px;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
   color: white;
   font-weight: 900;
   cursor: pointer;
+  box-shadow: 0 14px 35px color-mix(in srgb, var(--accent) 24%, transparent);
+  transition: 0.25s ease;
+}
+
+.terminalContact button:hover {
+  transform: translateY(-3px);
 }
 
 .contactSide {
@@ -839,7 +836,6 @@ footer {
 
 @media (max-width: 980px) {
   .hero,
-  .aboutBento,
   .experienceGrid,
   .certificateWrapper,
   .contactLayout {
@@ -851,12 +847,16 @@ footer {
     margin: auto;
   }
 
+  .aboutBento,
   .skillsGrid,
   .projectsGrid,
   .researchGrid,
-  .educationGrid,
-  .whyGrid {
+  .educationGrid {
     grid-template-columns: 1fr;
+  }
+
+  .aboutBox {
+    min-height: auto;
   }
 
   .typingBox {
@@ -877,10 +877,6 @@ footer {
 
   .hero h1 {
     letter-spacing: -1.5px;
-  }
-
-  .statsGrid {
-    grid-template-columns: 1fr;
   }
 
   .heroButtons,
