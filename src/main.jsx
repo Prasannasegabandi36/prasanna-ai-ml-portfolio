@@ -8,7 +8,9 @@ const profile = {
   email: "prasannasegabandi@gmail.com",
   github: "https://github.com/Prasannasegabandi36",
   linkedin: "https://www.linkedin.com/in/segabandi-prasanna-rani-5828a42ba/",
-  resume: "#"
+  medium: "https://medium.com/@prasannasegabandi",
+  resume: "/resume/Prasanna_Rani_Resume.pdf",
+  image: "/images/profile.jpg"
 };
 
 const typingSentences = [
