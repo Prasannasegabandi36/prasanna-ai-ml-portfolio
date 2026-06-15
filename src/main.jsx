@@ -39,7 +39,7 @@ const education = [
     institute: "Indian Institute of Technology, Guwahati",
     score: "CGPA: 7.53",
     year: "2023 - Present",
-    note: "Building a strong foundation in mathematics, computing, machine learning, and applied AI."
+    note: "Building a foundation in mathematics, computing, machine learning, and applied AI."
   },
   {
     degree: "Senior Secondary",
@@ -254,6 +254,7 @@ function App() {
   const [sentenceIndex, setSentenceIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [theme, setTheme] = useState("theme-cyan");
+  const [activeSection, setActiveSection] = useState("home");
 
   const [form, setForm] = useState({
     name: "",
@@ -270,6 +271,7 @@ function App() {
 
   const changeTheme = (section) => {
     setTheme(themeMap[section] || "theme-cyan");
+    setActiveSection(section);
   };
 
   const handleContact = (event) => {
@@ -305,16 +307,18 @@ function App() {
   return (
     <div className={`app ${theme}`}>
       <nav className="navbar">
-        <a href="#home" className="logo" onClick={() => changeTheme("home")}>PR</a>
+        <a href="#home" className="logo" onClick={() => changeTheme("home")}>
+          PR
+        </a>
 
         <div className="navLinks">
-          <a href="#about" onClick={() => changeTheme("about")}>About</a>
-          <a href="#education" onClick={() => changeTheme("education")}>Education</a>
-          <a href="#experience" onClick={() => changeTheme("experience")}>Experience</a>
-          <a href="#skills" onClick={() => changeTheme("skills")}>Skills</a>
-          <a href="#research" onClick={() => changeTheme("research")}>Research</a>
-          <a href="#projects" onClick={() => changeTheme("projects")}>Projects</a>
-          <a href="#contact" onClick={() => changeTheme("contact")}>Contact</a>
+          <a className={activeSection === "about" ? "activeNav" : ""} href="#about" onClick={() => changeTheme("about")}>About</a>
+          <a className={activeSection === "education" ? "activeNav" : ""} href="#education" onClick={() => changeTheme("education")}>Education</a>
+          <a className={activeSection === "experience" ? "activeNav" : ""} href="#experience" onClick={() => changeTheme("experience")}>Experience</a>
+          <a className={activeSection === "skills" ? "activeNav" : ""} href="#skills" onClick={() => changeTheme("skills")}>Skills</a>
+          <a className={activeSection === "research" ? "activeNav" : ""} href="#research" onClick={() => changeTheme("research")}>Research</a>
+          <a className={activeSection === "projects" ? "activeNav" : ""} href="#projects" onClick={() => changeTheme("projects")}>Projects</a>
+          <a className={activeSection === "contact" ? "activeNav" : ""} href="#contact" onClick={() => changeTheme("contact")}>Contact</a>
         </div>
       </nav>
 
@@ -364,29 +368,14 @@ function App() {
           </div>
         </div>
 
-        <div className="profilePanel">
+        <div className="profilePanel cleanProfilePanel">
           <div className="profileFrame">
             <img src={profile.image} alt="Prasanna Rani profile" />
           </div>
 
-          <div className="profileInfoCard">
-            <h3>{profile.shortName}</h3>
-            <p>AI/ML • Data Science • GenAI</p>
-
-            <div className="statsGrid">
-              <div>
-                <strong>7.53</strong>
-                <span>CGPA</span>
-              </div>
-              <div>
-                <strong>6+</strong>
-                <span>Projects</span>
-              </div>
-              <div>
-                <strong>2</strong>
-                <span>Internships</span>
-              </div>
-            </div>
+          <div className="profileCaption">
+            <span>AI/ML Portfolio</span>
+            <p>Data Science • GenAI • Practical Projects</p>
           </div>
         </div>
       </section>
@@ -408,29 +397,35 @@ function App() {
           <h2>Building practical AI solutions with curiosity and purpose</h2>
         </div>
 
-        <div className="aboutBento">
-          <div className="aboutBox bigBox">
+        <div className="aboutBento balancedAbout">
+          <div className="aboutBox">
             <h3>Who I Am</h3>
             <p>
-              I am an AI/ML and Data Science learner who likes turning ideas
-              into working applications. I focus on creating projects that are
-              simple to use, visually clear, and useful for real problems.
+              I am Prasanna Rani, a Data Science and Artificial Intelligence student at
+              IIT Guwahati. I enjoy learning by building projects, especially in AI/ML,
+              GenAI, NLP, healthcare awareness, and analytics dashboards.
+            </p>
+            <p>
+              My goal is to create simple and useful AI applications that can be tested
+              by real users, not just kept as notebook experiments.
             </p>
           </div>
 
           <div className="aboutBox">
             <h3>How I Build</h3>
             <p>
-              I start with a problem, design a small workflow, build the model
-              or AI logic, and deploy it as a web app so others can test it.
+              I usually start with a real problem, understand the user need, prepare the
+              data or AI workflow, build the model or logic, and deploy it using tools
+              like Streamlit, GitHub, and Vercel.
             </p>
           </div>
 
           <div className="aboutBox">
             <h3>Current Direction</h3>
             <p>
-              My focus areas are GenAI tools, ML dashboards, NLP applications,
-              healthcare AI awareness, and agentic workflows.
+              I am focusing on AI/ML internship preparation, stronger GenAI projects,
+              agentic workflows, practical dashboards, and research-oriented healthcare
+              AI ideas.
             </p>
           </div>
         </div>
@@ -608,40 +603,40 @@ function App() {
               <span></span>
               <span></span>
               <span></span>
-              <p>prasanna@portfolio:~</p>
+              <p>prasanna@portfolio:message</p>
             </div>
 
             <label>
-              <small>~/name</small>
+              <small>visitor.name</small>
               <input
                 type="text"
-                placeholder="your name"
+                placeholder="Enter your name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
             </label>
 
             <label>
-              <small>~/email</small>
+              <small>visitor.email</small>
               <input
                 type="email"
-                placeholder="you@domain.com"
+                placeholder="Enter your email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
             </label>
 
             <label>
-              <small>~/message</small>
+              <small>visitor.message</small>
               <textarea
-                placeholder="echo 'hello prasanna...'"
+                placeholder="Write your message for internship, project, or collaboration..."
                 rows="5"
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
               ></textarea>
             </label>
 
-            <button type="submit">send_message.sh</button>
+            <button type="submit">Send Portfolio Message</button>
           </form>
 
           <div className="contactSide">
