@@ -161,7 +161,24 @@ const visualStrip = [
   { icon: "📝", title: "NLP Apps" },
   { icon: "🚀", title: "Deployments" },
   { icon: "🔎", title: "RAG Basics" },
-  { icon: "🛒", title: "Shopping AI" }
+  { icon: "🛒", title: "Shopping AI" },
+  { icon: "🧪", title: "AI Research" },
+  { icon: "⚙️", title: "Automation" },
+  { icon: "💡", title: "Prompt Design" },
+  { icon: "📦", title: "Data Products" }
+];
+
+const aiTopics = [
+  "Data",
+  "Clean",
+  "EDA",
+  "Model",
+  "Prompt",
+  "Agent",
+  "RAG",
+  "Deploy",
+  "Monitor",
+  "Learn"
 ];
 
 const projects = [
@@ -349,6 +366,15 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
+      <div className="starsLayer">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <nav className="navbar">
         <a href="#home" className="logo" onClick={() => changeTheme("home")}>
           PR
@@ -511,9 +537,14 @@ function App() {
 
               <div className="experienceHighlight">{item.highlight}</div>
 
-              {item.points.map((point, i) => (
-                <p className="expPoint" key={i}>— {point}</p>
-              ))}
+              <div className="experiencePoints">
+                {item.points.map((point, i) => (
+                  <div className="expPoint" key={i}>
+                    <span className="colorBullet"></span>
+                    <p>{point}</p>
+                  </div>
+                ))}
+              </div>
 
               <div className="learnedSkills">
                 {item.learned.map((skill) => (
@@ -550,16 +581,25 @@ function App() {
       <section id="aiLab" className="section sectionAILab aiShowcaseSection">
         <div className="sectionHeader">
           <span>AI Lab</span>
-          <h2>Ideas moving through an AI pipeline</h2>
+          <h2>Ideas moving through an AI universe</h2>
         </div>
 
         <div className="aiShowcase">
           <div className="aiOrbit">
-            <div className="coreBrain">AI</div>
-            <span className="node node1">Data</span>
-            <span className="node node2">Model</span>
-            <span className="node node3">Deploy</span>
-            <span className="node node4">Learn</span>
+            <div className="coreBrain">
+              <span>AI</span>
+            </div>
+
+            {aiTopics.map((topic, index) => (
+              <span className={`node node${index + 1}`} key={topic}>
+                {topic}
+              </span>
+            ))}
+
+            <i className="star star1">✦</i>
+            <i className="star star2">✧</i>
+            <i className="star star3">✦</i>
+            <i className="star star4">✧</i>
           </div>
 
           <div className="aiShowcaseText">
@@ -572,9 +612,12 @@ function App() {
             <div className="aiSteps">
               <span>Problem</span>
               <span>Data</span>
+              <span>Prompt</span>
               <span>Model</span>
+              <span>Agent</span>
               <span>Interface</span>
               <span>Deployment</span>
+              <span>Feedback</span>
             </div>
           </div>
         </div>
