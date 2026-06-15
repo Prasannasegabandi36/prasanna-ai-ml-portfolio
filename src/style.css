@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700;800&display=swap');
 
 * {
   margin: 0;
@@ -72,6 +72,24 @@ a {
   --accent3: #facc15;
 }
 
+.theme-red {
+  --accent: #ef4444;
+  --accent2: #f97316;
+  --accent3: #facc15;
+}
+
+.theme-violet {
+  --accent: #8b5cf6;
+  --accent2: #06b6d4;
+  --accent3: #f472b6;
+}
+
+.theme-gold {
+  --accent: #facc15;
+  --accent2: #fb923c;
+  --accent3: #38bdf8;
+}
+
 .app::before {
   content: "";
   position: fixed;
@@ -88,12 +106,12 @@ a {
 .app::after {
   content: "";
   position: fixed;
-  width: 480px;
-  height: 480px;
-  right: -160px;
+  width: 500px;
+  height: 500px;
+  right: -170px;
   top: 120px;
   background: color-mix(in srgb, var(--accent) 24%, transparent);
-  filter: blur(110px);
+  filter: blur(115px);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -104,7 +122,8 @@ a {
 .hero,
 .section,
 footer,
-.scrollingStrip {
+.scrollingStrip,
+.quoteSection {
   position: relative;
   z-index: 1;
 }
@@ -526,6 +545,33 @@ footer,
   to { transform: translateX(-50%); }
 }
 
+.quoteSection {
+  width: 92%;
+  max-width: 1250px;
+  margin: 40px auto 0;
+  padding: 28px;
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), rgba(15, 23, 42, 0.82)),
+    radial-gradient(circle at right, color-mix(in srgb, var(--accent3) 18%, transparent), transparent 40%);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.22);
+}
+
+.quoteSection p {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.quoteSection span {
+  display: block;
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 15px;
+}
+
 .section {
   width: 92%;
   max-width: 1250px;
@@ -540,12 +586,60 @@ footer,
   inset: 35px -20px;
   border-radius: 42px;
   background:
-    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 28%),
-    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent2) 13%, transparent), transparent 26%),
-    radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--accent3) 10%, transparent), transparent 30%);
+    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--sectionA, var(--accent)) 18%, transparent), transparent 28%),
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--sectionB, var(--accent2)) 18%, transparent), transparent 26%),
+    radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--sectionC, var(--accent3)) 15%, transparent), transparent 30%);
   filter: blur(8px);
-  opacity: 0.75;
+  opacity: 0.85;
   z-index: -1;
+}
+
+.sectionAbout {
+  --sectionA: #a78bfa;
+  --sectionB: #ec4899;
+  --sectionC: #38bdf8;
+}
+
+.sectionEducation {
+  --sectionA: #60a5fa;
+  --sectionB: #22d3ee;
+  --sectionC: #818cf8;
+}
+
+.sectionExperience {
+  --sectionA: #f472b6;
+  --sectionB: #fb7185;
+  --sectionC: #a78bfa;
+}
+
+.sectionSkills {
+  --sectionA: #ef4444;
+  --sectionB: #f97316;
+  --sectionC: #facc15;
+}
+
+.sectionResearch {
+  --sectionA: #fb923c;
+  --sectionB: #facc15;
+  --sectionC: #f472b6;
+}
+
+.sectionProjects {
+  --sectionA: #22c55e;
+  --sectionB: #14b8a6;
+  --sectionC: #38bdf8;
+}
+
+.sectionCertificates {
+  --sectionA: #8b5cf6;
+  --sectionB: #06b6d4;
+  --sectionC: #f472b6;
+}
+
+.sectionContact {
+  --sectionA: #facc15;
+  --sectionB: #fb923c;
+  --sectionC: #38bdf8;
 }
 
 .sectionHeader {
@@ -558,7 +652,7 @@ footer,
   display: inline-block;
   font-family: "Space Grotesk", sans-serif;
   color: white;
-  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+  background: linear-gradient(135deg, var(--sectionA, var(--accent)), var(--sectionB, var(--accent2)), var(--sectionC, var(--accent3)));
   border: none;
   padding: 8px 14px;
   border-radius: 999px;
@@ -575,7 +669,7 @@ footer,
   font-size: clamp(30px, 4vw, 46px);
   letter-spacing: -1.3px;
   margin-top: 18px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3), #22c55e);
+  background: linear-gradient(135deg, var(--sectionA, var(--accent)), var(--sectionB, var(--accent2)), var(--sectionC, var(--accent3)), #22c55e);
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 0 35px color-mix(in srgb, var(--accent) 18%, transparent);
@@ -616,17 +710,17 @@ footer,
 
 .aboutBox:nth-child(1) {
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--accent) 12%, transparent), rgba(15, 23, 42, 0.88));
+    linear-gradient(145deg, color-mix(in srgb, var(--sectionA, var(--accent)) 14%, transparent), rgba(15, 23, 42, 0.88));
 }
 
 .aboutBox:nth-child(2) {
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--accent2) 12%, transparent), rgba(15, 23, 42, 0.88));
+    linear-gradient(145deg, color-mix(in srgb, var(--sectionB, var(--accent2)) 14%, transparent), rgba(15, 23, 42, 0.88));
 }
 
 .aboutBox:nth-child(3) {
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--accent3) 12%, transparent), rgba(15, 23, 42, 0.88));
+    linear-gradient(145deg, color-mix(in srgb, var(--sectionC, var(--accent3)) 14%, transparent), rgba(15, 23, 42, 0.88));
 }
 
 .aboutBox:hover,
@@ -655,7 +749,7 @@ footer,
   font-family: "Space Grotesk", sans-serif;
   font-size: 23px;
   margin-bottom: 14px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--sectionA, var(--accent)), var(--sectionB, var(--accent2)));
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -875,7 +969,7 @@ footer,
 .terminalTop p {
   margin-left: 10px;
   color: var(--accent);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "JetBrains Mono", monospace;
   font-weight: 900;
   font-size: 13px;
 }
@@ -893,7 +987,6 @@ footer,
   font-weight: 900;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
-  text-transform: none;
 }
 
 .terminalContact input,
@@ -907,6 +1000,7 @@ footer,
   padding: 14px 16px;
   font-size: 15px;
   resize: none;
+  font-family: "Outfit", sans-serif;
 }
 
 .terminalContact input::placeholder,
@@ -932,7 +1026,6 @@ footer,
   cursor: pointer;
   box-shadow: 0 14px 35px color-mix(in srgb, var(--accent) 24%, transparent);
   transition: 0.25s ease;
-  text-transform: lowercase;
 }
 
 .terminalContact button:hover {
@@ -979,10 +1072,14 @@ footer,
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 900;
   color: white;
   flex-shrink: 0;
+}
+
+.realIcon {
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
 }
 
 .linkedinLogo {
@@ -999,6 +1096,10 @@ footer,
 
 .mailLogo {
   background: linear-gradient(135deg, #ec4899, #f97316);
+}
+
+.resumeLogo {
+  background: linear-gradient(135deg, #8b5cf6, #38bdf8);
 }
 
 .socialCard span {
@@ -1019,6 +1120,7 @@ footer {
   padding: 30px;
   color: #94a3b8;
   border-top: 1px solid rgba(148, 163, 184, 0.14);
+  font-family: "JetBrains Mono", monospace;
 }
 
 @media (max-width: 980px) {
@@ -1058,7 +1160,8 @@ footer {
 
   .hero,
   .section,
-  .navbar {
+  .navbar,
+  .quoteSection {
     width: 90%;
   }
 
