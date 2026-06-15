@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +11,7 @@ html {
 }
 
 body {
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: "Outfit", Arial, Helvetica, sans-serif;
   background: #030712;
   color: #ffffff;
   overflow-x: hidden;
@@ -22,21 +24,21 @@ a {
 
 .app {
   --accent: #38bdf8;
-  --accent2: #8b5cf6;
+  --accent2: #6366f1;
   --accent3: #ec4899;
   min-height: 100vh;
   background:
     radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 30%),
     radial-gradient(circle at 85% 15%, color-mix(in srgb, var(--accent2) 24%, transparent), transparent 32%),
-    radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.08), transparent 35%),
+    radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--accent3) 10%, transparent), transparent 35%),
     #030712;
   position: relative;
-  transition: 0.45s ease;
+  transition: background 0.6s ease, color 0.4s ease;
 }
 
 .theme-cyan {
   --accent: #38bdf8;
-  --accent2: #8b5cf6;
+  --accent2: #6366f1;
   --accent3: #ec4899;
 }
 
@@ -49,13 +51,13 @@ a {
 .theme-blue {
   --accent: #60a5fa;
   --accent2: #22d3ee;
-  --accent3: #8b5cf6;
+  --accent3: #818cf8;
 }
 
 .theme-pink {
   --accent: #f472b6;
-  --accent2: #8b5cf6;
-  --accent3: #38bdf8;
+  --accent2: #fb7185;
+  --accent3: #a78bfa;
 }
 
 .theme-green {
@@ -67,7 +69,7 @@ a {
 .theme-orange {
   --accent: #fb923c;
   --accent2: #f472b6;
-  --accent3: #8b5cf6;
+  --accent3: #facc15;
 }
 
 .app::before {
@@ -81,6 +83,21 @@ a {
   mask-image: linear-gradient(to bottom, black, transparent 80%);
   pointer-events: none;
   z-index: 0;
+}
+
+.app::after {
+  content: "";
+  position: fixed;
+  width: 480px;
+  height: 480px;
+  right: -160px;
+  top: 120px;
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  filter: blur(110px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.5s ease;
 }
 
 .navbar,
@@ -110,9 +127,15 @@ footer,
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 900;
   letter-spacing: 1px;
   box-shadow: 0 0 35px color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: 0.4s ease;
+}
+
+.logo:hover {
+  transform: rotate(-6deg) scale(1.08);
 }
 
 .navLinks {
@@ -137,10 +160,12 @@ footer,
 
 .activeNav {
   color: white !important;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
   padding: 8px 13px;
   border-radius: 999px;
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--accent) 45%, transparent),
+    0 8px 26px color-mix(in srgb, var(--accent2) 25%, transparent);
 }
 
 .hero {
@@ -183,6 +208,7 @@ footer,
 }
 
 .hero h1 {
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(42px, 6vw, 76px);
   line-height: 1.03;
   letter-spacing: -2.5px;
@@ -191,12 +217,13 @@ footer,
 
 .hero h1 span {
   display: block;
-  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3), #22c55e);
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .hero h2 {
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(22px, 3vw, 34px);
   color: #ddd6fe;
   margin-bottom: 20px;
@@ -365,29 +392,7 @@ footer,
   border: 1px solid rgba(148, 163, 184, 0.25);
   box-shadow: 0 30px 100px rgba(0,0,0,0.45);
   text-align: center;
-  overflow: hidden;
-}
-
-.profilePanel::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(from 180deg, transparent, var(--accent), transparent, var(--accent3), transparent);
-  animation: spinBorder 6s linear infinite;
-  z-index: -1;
-}
-
-.profilePanel::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: rgba(15, 23, 42, 0.94);
-  border-radius: 35px;
-  z-index: -1;
-}
-
-@keyframes spinBorder {
-  to { transform: rotate(360deg); }
+  overflow: visible;
 }
 
 .profileFrame {
@@ -398,7 +403,55 @@ footer,
   padding: 7px;
   background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
   box-shadow: 0 0 55px color-mix(in srgb, var(--accent) 38%, transparent);
-  animation: none;
+  position: relative;
+  z-index: 1;
+  animation: none !important;
+}
+
+.profileFrame::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 44px;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent),
+    var(--accent2),
+    var(--accent3),
+    #22c55e,
+    #facc15,
+    var(--accent)
+  );
+  filter: blur(22px);
+  opacity: 0.85;
+  z-index: -1;
+  animation: profileGlowRotate 7s linear infinite;
+}
+
+.profileFrame::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 40px;
+  border: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  z-index: -1;
+  animation: profilePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes profileGlowRotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes profilePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
 }
 
 .profileFrame img {
@@ -409,6 +462,7 @@ footer,
   border-radius: 28px;
   display: block;
   background: #0f172a;
+  animation: none !important;
 }
 
 .profileCaption {
@@ -477,16 +531,38 @@ footer,
   max-width: 1250px;
   margin: auto;
   padding: 86px 0;
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 35px -20px;
+  border-radius: 42px;
+  background:
+    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 28%),
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent2) 13%, transparent), transparent 26%),
+    radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--accent3) 10%, transparent), transparent 30%);
+  filter: blur(8px);
+  opacity: 0.75;
+  z-index: -1;
 }
 
 .sectionHeader {
   text-align: center;
   margin-bottom: 48px;
+  position: relative;
 }
 
 .sectionHeader span {
   display: inline-block;
-  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 20%, transparent);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -495,14 +571,21 @@ footer,
 }
 
 .sectionHeader h2 {
+  font-family: "Space Grotesk", sans-serif;
   font-size: clamp(30px, 4vw, 46px);
   letter-spacing: -1.3px;
+  margin-top: 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3), #22c55e);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 35px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .aboutBento {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 .aboutBox,
@@ -527,7 +610,23 @@ footer,
 }
 
 .aboutBox {
-  min-height: 260px;
+  min-height: 230px;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.aboutBox:nth-child(1) {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 12%, transparent), rgba(15, 23, 42, 0.88));
+}
+
+.aboutBox:nth-child(2) {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent2) 12%, transparent), rgba(15, 23, 42, 0.88));
+}
+
+.aboutBox:nth-child(3) {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent3) 12%, transparent), rgba(15, 23, 42, 0.88));
 }
 
 .aboutBox:hover,
@@ -539,7 +638,10 @@ footer,
 .certificateBox:hover,
 .contactSide:hover {
   transform: translateY(-8px);
-  border-color: color-mix(in srgb, var(--accent) 58%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 65%, transparent);
+  box-shadow:
+    0 28px 80px color-mix(in srgb, var(--accent) 16%, transparent),
+    inset 0 0 25px color-mix(in srgb, var(--accent) 7%, transparent);
 }
 
 .aboutBox h3,
@@ -550,8 +652,12 @@ footer,
 .experienceCard h3,
 .certificateBox h3,
 .contactSide h3 {
-  font-size: 21px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 23px;
   margin-bottom: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .aboutBox p,
@@ -561,9 +667,10 @@ footer,
 .experienceCard p,
 .contactSide p,
 .contactCard p {
-  color: #cbd5e1;
-  line-height: 1.75;
+  color: #dbeafe;
+  line-height: 1.78;
   margin-top: 12px;
+  font-size: 16.5px;
 }
 
 .skillsGrid,
@@ -738,13 +845,19 @@ footer,
 .terminalContact {
   padding: 0;
   overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  box-shadow:
+    0 0 45px color-mix(in srgb, var(--accent) 13%, transparent),
+    inset 0 0 30px rgba(255, 255, 255, 0.03);
 }
 
 .terminalTop {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(2, 6, 23, 0.8);
+  background:
+    linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.88)),
+    radial-gradient(circle at left, color-mix(in srgb, var(--accent) 18%, transparent), transparent 40%);
   padding: 14px 18px;
   border-bottom: 1px solid rgba(148, 163, 184, 0.18);
 }
@@ -761,7 +874,9 @@ footer,
 
 .terminalTop p {
   margin-left: 10px;
-  color: #94a3b8;
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
   font-size: 13px;
 }
 
@@ -773,10 +888,12 @@ footer,
 .terminalContact small {
   display: block;
   color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
   font-weight: 900;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .terminalContact input,
@@ -785,16 +902,22 @@ footer,
   border: 1px solid rgba(148, 163, 184, 0.18);
   outline: none;
   border-radius: 14px;
-  background: rgba(2, 6, 23, 0.45);
+  background: rgba(2, 6, 23, 0.72);
   color: white;
   padding: 14px 16px;
   font-size: 15px;
   resize: none;
 }
 
+.terminalContact input::placeholder,
+.terminalContact textarea::placeholder {
+  color: #94a3b8;
+}
+
 .terminalContact input:focus,
 .terminalContact textarea:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .terminalContact button {
@@ -804,10 +927,12 @@ footer,
   border-radius: 14px;
   background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
   color: white;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 900;
   cursor: pointer;
   box-shadow: 0 14px 35px color-mix(in srgb, var(--accent) 24%, transparent);
   transition: 0.25s ease;
+  text-transform: lowercase;
 }
 
 .terminalContact button:hover {
@@ -820,11 +945,73 @@ footer,
   justify-content: center;
 }
 
-.contactLinks {
+.socialBoard {
+  gap: 16px;
+}
+
+.socialBoard h3 {
+  margin-bottom: 18px;
+}
+
+.socialCard {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(30, 41, 59, 0.55));
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  transition: 0.3s ease;
+}
+
+.socialCard:hover {
+  transform: translateX(8px) translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.socialLogo {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  color: white;
+  flex-shrink: 0;
+}
+
+.linkedinLogo {
+  background: linear-gradient(135deg, #0a66c2, #38bdf8);
+}
+
+.githubLogo {
+  background: linear-gradient(135deg, #111827, #64748b);
+}
+
+.mediumLogo {
+  background: linear-gradient(135deg, #000000, #22c55e);
+}
+
+.mailLogo {
+  background: linear-gradient(135deg, #ec4899, #f97316);
+}
+
+.socialCard span {
+  display: block;
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.socialCard p {
+  color: #e2e8f0;
+  margin-top: 4px;
+  font-size: 15px;
 }
 
 footer {
