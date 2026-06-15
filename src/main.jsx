@@ -5,7 +5,7 @@ import "./style.css";
 const profile = {
   name: "Segabandi Prasanna Rani",
   shortName: "Prasanna Rani",
-  role: "AI/ML & Data Science Intern Aspirant",
+  role: "AI, ML & Data Science Enthusiast",
   email: "prasannasegabandi@gmail.com",
   github: "https://github.com/Prasannasegabandi36",
   linkedin: "https://www.linkedin.com/in/segabandi-prasanna-rani-5828a42ba/",
@@ -20,17 +20,18 @@ const themeMap = {
   education: "theme-blue",
   experience: "theme-pink",
   skills: "theme-red",
+  aiLab: "theme-violet",
   research: "theme-orange",
   projects: "theme-green",
-  certificates: "theme-violet",
+  certificates: "theme-cyan",
   contact: "theme-gold"
 };
 
 const typingSentences = [
-  "I build AI tools that are simple, useful, and deployable.",
-  "I convert machine learning ideas into real web applications.",
-  "I explore Data Science, GenAI, Agentic AI, and Healthcare AI.",
-  "I am building my portfolio one practical project at a time."
+  "Engineering practical AI systems from data to decisions.",
+  "Building ML, NLP, GenAI, and analytics projects that can be deployed.",
+  "Exploring healthcare AI, agentic workflows, and intelligent dashboards.",
+  "Turning ideas into simple, useful, and real-world AI applications."
 ];
 
 const education = [
@@ -46,7 +47,7 @@ const education = [
     institute: "Board of Intermediate Education, Andhra Pradesh",
     score: "90.0%",
     year: "2021",
-    note: "Built strong academic fundamentals and interest in analytical problem solving."
+    note: "Built strong academic fundamentals and analytical thinking."
   },
   {
     degree: "Secondary",
@@ -59,26 +60,30 @@ const education = [
 
 const experience = [
   {
-    role: "Data Science Intern",
+    role: "Data Science Work",
     company: "Unified Mentor",
     year: "2026 - Present",
+    color: "expBlue",
     highlight: "Business dashboards, KPI storytelling, and analytics deployment.",
     points: [
       "Converted raw business datasets into dashboards that explain customer behavior, shipping trends, and operational performance.",
       "Built Streamlit analytics applications using Python, Pandas, Matplotlib, and Plotly.",
       "Practiced data cleaning, exploration, visualization, insight writing, and deployment."
-    ]
+    ],
+    learned: ["Python", "Pandas", "EDA", "Streamlit", "Plotly", "Dashboards", "KPIs", "Business Analytics"]
   },
   {
-    role: "AI/ML Intern",
+    role: "AI/ML Project Work",
     company: "Micro Information Technology Services",
     year: "2025",
+    color: "expPink",
     highlight: "NLP sentiment analysis and real-time ML web application.",
     points: [
       "Created an NLP sentiment analysis app to classify user text into positive, negative, and neutral categories.",
       "Used text preprocessing, feature extraction, model prediction, and Streamlit interface development.",
-      "Learned how ML models can be converted into simple usable applications."
-    ]
+      "Learned how machine learning models can be converted into simple usable applications."
+    ],
+    learned: ["NLP", "Scikit-learn", "NLTK", "TextBlob", "Classification", "Model Evaluation", "Streamlit"]
   }
 ];
 
@@ -109,7 +114,7 @@ const skillGroups = [
     items: ["Streamlit", "Streamlit Cloud", "Vercel", "Git", "GitHub", "VS Code", "Jupyter", "Google Colab"]
   },
   {
-    title: "Professional Strengths",
+    title: "Creative Strengths",
     icon: "✨",
     items: ["Project Building", "Dashboard Thinking", "AI Curiosity", "Problem Solving", "Learning Mindset", "Communication"]
   }
@@ -320,9 +325,7 @@ function App() {
     const subject = `Portfolio message from ${form.name || "Visitor"}`;
     const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
 
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   useEffect(() => {
@@ -356,6 +359,7 @@ function App() {
           <a className={activeSection === "education" ? "activeNav" : ""} href="#education" onClick={() => changeTheme("education")}>Education</a>
           <a className={activeSection === "experience" ? "activeNav" : ""} href="#experience" onClick={() => changeTheme("experience")}>Experience</a>
           <a className={activeSection === "skills" ? "activeNav" : ""} href="#skills" onClick={() => changeTheme("skills")}>Skills</a>
+          <a className={activeSection === "aiLab" ? "activeNav" : ""} href="#aiLab" onClick={() => changeTheme("aiLab")}>AI Lab</a>
           <a className={activeSection === "research" ? "activeNav" : ""} href="#research" onClick={() => changeTheme("research")}>Research</a>
           <a className={activeSection === "projects" ? "activeNav" : ""} href="#projects" onClick={() => changeTheme("projects")}>Projects</a>
           <a className={activeSection === "contact" ? "activeNav" : ""} href="#contact" onClick={() => changeTheme("contact")}>Contact</a>
@@ -364,13 +368,12 @@ function App() {
 
       <section id="home" className="hero">
         <div className="heroContent">
-          <div className="badge">✨ AI/ML • Data Science • GenAI • Portfolio Mode</div>
-
-          <h1>
-            Hi, I am <span>{profile.name}</span>
-          </h1>
-
-          <h2>{profile.role}</h2>
+          <div className="terminalIntro">
+            <span>$ whoami</span>
+            <h1>{profile.shortName}</h1>
+            <h2>{profile.role} | From DATA to Decisions</h2>
+            <p>&gt; Engineering practical AI systems</p>
+          </div>
 
           <div className="typingBox premiumTyping">
             <span>{typedText}</span>
@@ -398,13 +401,6 @@ function App() {
             <a href={profile.resume} className="secondaryBtn" target="_blank" rel="noreferrer">
               Download Resume
             </a>
-          </div>
-
-          <div className="socialLinks">
-            <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href={profile.medium} target="_blank" rel="noreferrer">Medium</a>
-            <a href={`mailto:${profile.email}`}>Email</a>
           </div>
         </div>
 
@@ -499,12 +495,12 @@ function App() {
       <section id="experience" className="section sectionExperience">
         <div className="sectionHeader">
           <span>Experience</span>
-          <h2>Work I Practiced Through Internships</h2>
+          <h2>Work I Practiced Through Real Projects</h2>
         </div>
 
         <div className="experienceGrid">
           {experience.map((item, index) => (
-            <div className="experienceCard" key={index}>
+            <div className={`experienceCard ${item.color}`} key={index}>
               <div className="experienceTop">
                 <div>
                   <h3>{item.company}</h3>
@@ -518,6 +514,12 @@ function App() {
               {item.points.map((point, i) => (
                 <p className="expPoint" key={i}>— {point}</p>
               ))}
+
+              <div className="learnedSkills">
+                {item.learned.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -542,6 +544,39 @@ function App() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="aiLab" className="section sectionAILab aiShowcaseSection">
+        <div className="sectionHeader">
+          <span>AI Lab</span>
+          <h2>Ideas moving through an AI pipeline</h2>
+        </div>
+
+        <div className="aiShowcase">
+          <div className="aiOrbit">
+            <div className="coreBrain">AI</div>
+            <span className="node node1">Data</span>
+            <span className="node node2">Model</span>
+            <span className="node node3">Deploy</span>
+            <span className="node node4">Learn</span>
+          </div>
+
+          <div className="aiShowcaseText">
+            <h3>From raw data to useful intelligence</h3>
+            <p>
+              My project style follows a simple loop: understand the problem,
+              prepare the data or prompt flow, build the model or AI workflow,
+              deploy it, and improve based on user experience.
+            </p>
+            <div className="aiSteps">
+              <span>Problem</span>
+              <span>Data</span>
+              <span>Model</span>
+              <span>Interface</span>
+              <span>Deployment</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -732,7 +767,7 @@ function App() {
       </section>
 
       <footer>
-        <p>© 2026 Prasanna Rani — coded with curiosity, trained by projects, deployed with dreams.</p>
+        <p>© 2026 Prasanna Rani — built with data, curiosity & neural sparks.</p>
       </footer>
     </div>
   );
