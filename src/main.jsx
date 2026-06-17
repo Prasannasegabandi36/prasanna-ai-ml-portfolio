@@ -30,7 +30,8 @@ const themeMap = {
 const typingSentences = [
   "Engineering practical AI systems from data to decisions.",
   "Building ML, NLP, GenAI, and analytics projects that can be deployed.",
-  "Exploring healthcare AI, agentic workflows, and intelligent dashboards.",
+  "Creating smart farming, healthcare AI, and real-world assistant applications.",
+  "Exploring healthcare AI, agentic workflows, agriculture AI, and intelligent dashboards.",
   "Turning ideas into simple, useful, and real-world AI applications."
 ];
 
@@ -122,6 +123,11 @@ const skillGroups = [
 
 const researchDomains = [
   {
+    icon: "🌾",
+    title: "Agriculture AI",
+    desc: "Smart farming assistants for crop support, irrigation guidance, fertilizer awareness, and farmer-friendly voice tools."
+  },
+  {
     icon: "🏥",
     title: "Healthcare AI",
     desc: "AI tools for medicine awareness, prescription reading, and simple health explanations."
@@ -157,6 +163,7 @@ const visualStrip = [
   { icon: "🧠", title: "ML Models" },
   { icon: "📊", title: "Dashboards" },
   { icon: "🤖", title: "AI Agents" },
+  { icon: "🌾", title: "Farming AI" },
   { icon: "🏥", title: "Health AI" },
   { icon: "📝", title: "NLP Apps" },
   { icon: "🚀", title: "Deployments" },
@@ -176,12 +183,25 @@ const aiTopics = [
   "Prompt",
   "Agent",
   "RAG",
+  "Vision",
+  "Voice",
   "Deploy",
   "Monitor",
   "Learn"
 ];
 
 const projects = [
+  {
+    title: "AgriVision AI Smart Farming Assistant",
+    category: "Agriculture AI",
+    year: "2026",
+    image: "🌾",
+    tech: ["Python", "Streamlit", "Pandas", "Plotly", "Pillow", "Groq API"],
+    desc: "A multimodal smart farming assistant for farmers with image-based crop reports, voice-friendly Q&A, crop recommendation, fertilizer guidance, irrigation advice, crop calendar, and research dashboard.",
+    impact: "Designed for low-literacy farmers using simple farmer mode, browser text-to-speech, and practical crop decision support.",
+    github: "https://github.com/Prasannasegabandi36/agrivision-ai-smart-farming-assistant",
+    live: "#"
+  },
   {
     title: "AI Medicine Safety Assistant",
     category: "Healthcare AI",
@@ -273,23 +293,37 @@ const courses = [
 
 const chatbotKnowledge = {
   about:
-    "Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, NLP, GenAI, and analytics projects.",
+    "Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, NLP, GenAI, agriculture AI, healthcare AI, and analytics projects.",
   education:
     "Prasanna is pursuing BSc (Hons) in Data Science and Artificial Intelligence at IIT Guwahati with a current CGPA of 7.53. She completed Senior Secondary with 90.0% and Secondary with 93.0%.",
   skills:
     "Her skills include Python, SQL, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn, NLTK, TextBlob, Streamlit, LangChain, CrewAI, Groq API, RAG basics, Git, GitHub, VS Code, Jupyter, and Google Colab.",
   projects:
-    "Her major projects include AI Medicine Safety Assistant, Multi-Agent AI Career Assistant, AI Shopping Assistant, LinkedIn Post Generator, NLP Sentiment Analysis App, and Nassau Candy Distributor Analytics.",
+    "Her major projects include AgriVision AI Smart Farming Assistant, AI Medicine Safety Assistant, Multi-Agent AI Career Assistant, AI Shopping Assistant, LinkedIn Post Generator, NLP Sentiment Analysis App, and Nassau Candy Distributor Analytics.",
+  farming:
+    "AgriVision AI Smart Farming Assistant is a multimodal farming project for farmers. It supports image-based crop reports, voice-friendly farmer Q&A, crop recommendation, fertilizer guidance, irrigation advice, crop calendar, research dashboard, simple farmer mode, and text-to-speech answers.",
   experience:
     "She worked on Data Science work with Unified Mentor and AI/ML project work with Micro Information Technology Services. Her work includes dashboards, KPI analysis, sentiment analysis, and Streamlit-based ML applications.",
   contact:
     "You can contact Prasanna through email at prasannasegabandi@gmail.com, GitHub at Prasannasegabandi36, LinkedIn at Segabandi Prasanna Rani, and Medium at @prasannasegabandi.",
   research:
-    "Her interest domains include Healthcare AI, Medical Imaging, NLP, Content AI, Business Analytics, AI Commerce, Agentic AI, and practical AI tools."
+    "Her interest domains include Agriculture AI, Healthcare AI, Medical Imaging, NLP, Content AI, Business Analytics, AI Commerce, Agentic AI, and practical AI tools."
 };
 
 function getBotReply(message) {
   const text = message.toLowerCase();
+
+  if (
+    text.includes("farm") ||
+    text.includes("farming") ||
+    text.includes("agri") ||
+    text.includes("agriculture") ||
+    text.includes("crop") ||
+    text.includes("farmer") ||
+    text.includes("agrivision")
+  ) {
+    return chatbotKnowledge.farming;
+  }
 
   if (text.includes("about") || text.includes("who") || text.includes("prasanna")) {
     return chatbotKnowledge.about;
@@ -319,7 +353,7 @@ function getBotReply(message) {
     return chatbotKnowledge.research;
   }
 
-  return "I can answer questions about Prasanna’s education, skills, projects, experience, research interests, and contact details. Try asking: What projects has Prasanna built?";
+  return "I can answer questions about Prasanna’s education, skills, projects, experience, research interests, farming AI project, and contact details. Try asking: What projects has Prasanna built?";
 }
 
 function GitHubLogo() {
@@ -380,11 +414,11 @@ function App() {
   const [chatMessages, setChatMessages] = useState([
     {
       sender: "bot",
-      text: "Hi, I am Ask Prasanna AI. You can ask me about Prasanna’s projects, skills, education, experience, research interests, or contact details."
+      text: "Hi, I am Ask Prasanna AI. You can ask me about Prasanna’s projects, skills, education, experience, research interests, farming AI project, or contact details."
     }
   ]);
 
-  const categories = ["All", "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
+  const categories = ["All", "Agriculture AI", "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
 
   const filteredProjects =
     activeFilter === "All"
@@ -504,6 +538,7 @@ function App() {
             <span>Data Science</span>
             <span>Generative AI</span>
             <span>Agentic AI</span>
+            <span>Agriculture AI</span>
             <span>Healthcare AI</span>
           </div>
 
@@ -565,7 +600,7 @@ function App() {
             <p>
               I am Prasanna Rani, a Data Science and Artificial Intelligence student at
               IIT Guwahati. I enjoy learning by building projects in AI/ML, GenAI,
-              NLP, healthcare awareness, and analytics dashboards.
+              NLP, agriculture AI, healthcare awareness, and analytics dashboards.
             </p>
             <p>
               My goal is to create useful AI applications that can be tested by real users,
@@ -586,7 +621,7 @@ function App() {
             <h3>Current Direction</h3>
             <p>
               I am focusing on stronger GenAI projects, agentic workflows,
-              practical dashboards, and research-oriented healthcare AI ideas.
+              practical dashboards, farming AI, and research-oriented healthcare AI ideas.
             </p>
           </div>
         </div>
@@ -917,6 +952,7 @@ function App() {
               <button onClick={() => quickAsk("Tell me about Prasanna")}>About</button>
               <button onClick={() => quickAsk("What are Prasanna's skills?")}>Skills</button>
               <button onClick={() => quickAsk("What projects has Prasanna built?")}>Projects</button>
+              <button onClick={() => quickAsk("Tell me about the farming AI project")}>Farming AI</button>
               <button onClick={() => quickAsk("What is Prasanna's experience?")}>Experience</button>
               <button onClick={() => quickAsk("How can I contact Prasanna?")}>Contact</button>
             </div>
