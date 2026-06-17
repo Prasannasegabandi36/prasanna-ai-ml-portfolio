@@ -57,7 +57,16 @@ const experience = [
       "Built Streamlit analytics applications using Python, Pandas, Matplotlib, and Plotly.",
       "Practiced data cleaning, exploration, visualization, insight writing, and deployment.",
     ],
-    learned: ["Python", "Pandas", "EDA", "Streamlit", "Plotly", "Dashboards", "KPIs", "Business Analytics"],
+    learned: [
+      "Python",
+      "Pandas",
+      "EDA",
+      "Streamlit",
+      "Plotly",
+      "Dashboards",
+      "KPIs",
+      "Business Analytics",
+    ],
   },
   {
     role: "AI/ML Project Work",
@@ -70,7 +79,15 @@ const experience = [
       "Used text preprocessing, feature extraction, model prediction, and Streamlit interface development.",
       "Learned how machine learning models can be converted into simple usable applications.",
     ],
-    learned: ["NLP", "Scikit-learn", "NLTK", "TextBlob", "Classification", "Model Evaluation", "Streamlit"],
+    learned: [
+      "NLP",
+      "Scikit-learn",
+      "NLTK",
+      "TextBlob",
+      "Classification",
+      "Model Evaluation",
+      "Streamlit",
+    ],
   },
 ];
 
@@ -83,32 +100,73 @@ const skillGroups = [
   {
     title: "Data Science & Analytics",
     icon: "📊",
-    items: ["Pandas", "NumPy", "EDA", "Data Cleaning", "Matplotlib", "Seaborn", "Plotly", "Excel", "KPI Dashboards"],
+    items: [
+      "Pandas",
+      "NumPy",
+      "EDA",
+      "Data Cleaning",
+      "Matplotlib",
+      "Seaborn",
+      "Plotly",
+      "Excel",
+      "KPI Dashboards",
+    ],
   },
   {
     title: "Machine Learning & NLP",
     icon: "🧠",
-    items: ["Scikit-learn", "Classification", "Regression", "Model Evaluation", "NLTK", "TextBlob", "Sentiment Analysis"],
+    items: [
+      "Scikit-learn",
+      "Classification",
+      "Regression",
+      "Model Evaluation",
+      "NLTK",
+      "TextBlob",
+      "Sentiment Analysis",
+    ],
   },
   {
     title: "Generative AI & Agents",
     icon: "🤖",
-    items: ["LLM Basics", "Prompt Engineering", "RAG Basics", "LangChain", "CrewAI", "Groq API", "Gemini API", "AI Agents"],
+    items: [
+      "LLM Basics",
+      "Prompt Engineering",
+      "RAG Basics",
+      "LangChain",
+      "CrewAI",
+      "Groq API",
+      "Gemini API",
+      "AI Agents",
+    ],
   },
   {
     title: "AI Applications",
     icon: "🚀",
-    items: ["Healthcare AI", "Agriculture AI", "Voice Assistant", "Image AI", "OCR", "AI Chatbot", "Research Prototype"],
+    items: [
+      "Healthcare AI",
+      "Agriculture AI",
+      "Voice Assistant",
+      "Image AI",
+      "OCR",
+      "AI Chatbot",
+      "Research Prototype",
+    ],
   },
   {
     title: "Development & Deployment",
     icon: "🌐",
-    items: ["Streamlit", "Streamlit Cloud", "React", "Vite", "Vercel", "Git", "GitHub", "VS Code", "Jupyter", "Google Colab"],
-  },
-  {
-    title: "Creative Strengths",
-    icon: "✨",
-    items: ["Project Building", "Dashboard Thinking", "AI Curiosity", "Problem Solving", "Learning Mindset", "Communication"],
+    items: [
+      "Streamlit",
+      "Streamlit Cloud",
+      "React",
+      "Vite",
+      "Vercel",
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Jupyter",
+      "Google Colab",
+    ],
   },
 ];
 
@@ -163,7 +221,18 @@ const visualStrip = [
   { icon: "⚙️", title: "Automation" },
 ];
 
-const aiTopics = ["Data", "EDA", "ML", "NLP", "GenAI", "RAG", "Agents", "Voice AI", "Image AI", "Deploy"];
+const aiTopics = [
+  "Data",
+  "EDA",
+  "ML",
+  "NLP",
+  "GenAI",
+  "RAG",
+  "Agents",
+  "Voice AI",
+  "Image AI",
+  "Deploy",
+];
 
 const projects = [
   {
@@ -173,7 +242,8 @@ const projects = [
     image: "🌾",
     tech: ["Python", "Streamlit", "Pillow", "Pandas", "Plotly", "Groq API", "Voice AI"],
     desc: "A multimodal smart farming assistant for farmers with image-based farming reports, voice-friendly Q&A, crop recommendation, fertilizer guidance, irrigation advice, crop calendar, and research dashboard.",
-    impact: "Built for low-literacy farmers using simple answers, voice support, browser text-to-speech, and farmer-friendly guidance.",
+    impact:
+      "Built for low-literacy farmers using simple answers, voice support, browser text-to-speech, and farmer-friendly guidance.",
     github: "https://github.com/Prasannasegabandi36/agrivision-ai-smart-farming-assistant",
     live: "#",
   },
@@ -344,13 +414,6 @@ const chatbotKnowledge = [
       "Her resume is project-focused, showing deployed applications, dashboards, AI assistants, and real-world problem-solving.",
     ],
   },
-  {
-    keywords: ["idea", "ideas", "unique", "innovative", "different"],
-    replies: [
-      "Some innovative project directions for Prasanna are AgriVision AI, VVIT Campus Guide AI, KidneyCare AI, AI Medicine Safety Assistant, and AI Tourist Guide with camera-based place explanation.",
-      "A strong unique direction for Prasanna is building AI tools for real users like farmers, patients, students, parents, and job seekers.",
-    ],
-  },
 ];
 
 function getBotReply(message) {
@@ -360,8 +423,11 @@ function getBotReply(message) {
 
   chatbotKnowledge.forEach((item) => {
     let score = 0;
+
     item.keywords.forEach((keyword) => {
-      if (text.includes(keyword)) score += 1;
+      if (text.includes(keyword)) {
+        score += 1;
+      }
     });
 
     if (score > highestScore) {
@@ -393,8 +459,20 @@ function App() {
     },
   ]);
 
-  const categories = ["All", "GenAI", "Agentic AI", "Healthcare AI", "Agriculture AI", "ML", "Data Science"];
-  const filteredProjects = activeFilter === "All" ? projects : projects.filter((project) => project.category === activeFilter);
+  const categories = [
+    "All",
+    "GenAI",
+    "Agentic AI",
+    "Healthcare AI",
+    "Agriculture AI",
+    "ML",
+    "Data Science",
+  ];
+
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
   useEffect(() => {
     const currentSentence = typingSentences[sentenceIndex];
@@ -417,13 +495,18 @@ function App() {
 
   const handleContact = (event) => {
     event.preventDefault();
+
     const subject = `Portfolio message from ${form.name || "Visitor"}`;
     const body = `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   const handleChatSubmit = (event) => {
     event.preventDefault();
+
     if (!chatInput.trim()) return;
 
     const userMessage = { sender: "user", text: chatInput };
@@ -436,25 +519,32 @@ function App() {
   const quickAsk = (question) => {
     const userMessage = { sender: "user", text: question };
     const botMessage = { sender: "bot", text: getBotReply(question) };
+
     setChatMessages((prev) => [...prev, userMessage, botMessage]);
   };
 
   return (
     <div className="site-shell">
       <nav className="navbar">
-        <button className="brand" onClick={() => setActiveSection("home")}>PR</button>
+        <button className="brand" onClick={() => setActiveSection("home")}>
+          PR
+        </button>
 
         <div className="nav-links">
-          {["about", "education", "experience", "skills", "aiLab", "research", "projects", "contact"].map((section) => (
-            <a
-              key={section}
-              href={`#${section}`}
-              className={activeSection === section ? "active" : ""}
-              onClick={() => setActiveSection(section)}
-            >
-              {section === "aiLab" ? "AI Lab" : section.charAt(0).toUpperCase() + section.slice(1)}
-            </a>
-          ))}
+          {["about", "education", "experience", "skills", "aiLab", "research", "projects", "contact"].map(
+            (section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className={activeSection === section ? "active" : ""}
+                onClick={() => setActiveSection(section)}
+              >
+                {section === "aiLab"
+                  ? "AI Lab"
+                  : section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            )
+          )}
         </div>
       </nav>
 
@@ -463,7 +553,10 @@ function App() {
           <p className="terminal-line">$ whoami</p>
           <h1>{profile.shortName}</h1>
           <h2>{profile.role}</h2>
-          <p className="typing-text">{typedText}<span>|</span></p>
+          <p className="typing-text">
+            {typedText}
+            <span>|</span>
+          </p>
 
           <div className="hero-tags">
             <span>Machine Learning</span>
@@ -474,13 +567,15 @@ function App() {
           </div>
 
           <p className="hero-description">
-            I am pursuing BSc (Hons) in Data Science and Artificial Intelligence at IIT Guwahati.
+            I am pursuing BSc Honours in Data Science and Artificial Intelligence at IIT Guwahati.
             I enjoy building AI projects that are useful, understandable, and deployable.
           </p>
 
           <div className="hero-buttons">
             <a href="#projects">View Projects</a>
-            <a href={profile.resume} download>Download Resume</a>
+            <a href={profile.resume} download>
+              Download Resume
+            </a>
           </div>
         </div>
 
@@ -511,7 +606,8 @@ function App() {
             <h3>Who I Am</h3>
             <p>
               I am Prasanna Rani, a Data Science and Artificial Intelligence student at IIT Guwahati.
-              I enjoy learning by building projects in AI/ML, GenAI, NLP, agriculture, healthcare awareness, and analytics dashboards.
+              I enjoy learning by building projects in AI/ML, GenAI, NLP, agriculture, healthcare awareness,
+              and analytics dashboards.
             </p>
           </div>
 
@@ -543,7 +639,9 @@ function App() {
               <span className="year-pill">{edu.year}</span>
               <h3>{edu.degree}</h3>
               <h4>{edu.institute}</h4>
-              <p><strong>{edu.score}</strong> — {edu.note}</p>
+              <p>
+                <strong>{edu.score}</strong> — {edu.note}
+              </p>
             </div>
           ))}
         </div>
@@ -557,7 +655,9 @@ function App() {
           {experience.map((item) => (
             <div className={`experience-card ${item.color}`} key={item.company}>
               <h3>{item.company}</h3>
-              <p className="role-line">{item.role} • {item.year}</p>
+              <p className="role-line">
+                {item.role} • {item.year}
+              </p>
               <p>{item.highlight}</p>
 
               <ul>
@@ -585,6 +685,7 @@ function App() {
             <div className="skill-card" key={skill.title}>
               <div className="skill-icon">{skill.icon}</div>
               <h3>{skill.title}</h3>
+
               <div className="skill-tags">
                 {skill.items.map((item) => (
                   <span key={item}>{item}</span>
@@ -668,7 +769,9 @@ function App() {
           {filteredProjects.map((project) => (
             <div className="project-card" key={project.title}>
               <div className="project-icon">{project.image}</div>
-              <p className="project-category">{project.category} • {project.year}</p>
+              <p className="project-category">
+                {project.category} • {project.year}
+              </p>
               <h3>{project.title}</h3>
               <p>{project.desc}</p>
               <p className="impact-text">{project.impact}</p>
@@ -680,9 +783,14 @@ function App() {
               </div>
 
               <div className="project-links">
-                <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
+                <a href={project.github} target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
+
                 {project.live !== "#" && (
-                  <a href={project.live} target="_blank" rel="noreferrer">Live Demo</a>
+                  <a href={project.live} target="_blank" rel="noreferrer">
+                    Live Demo
+                  </a>
                 )}
               </div>
             </div>
@@ -746,11 +854,19 @@ function App() {
 
           <div className="contact-links">
             <h3>Find me online</h3>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-            <a href={profile.medium} target="_blank" rel="noreferrer">Medium</a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a href={profile.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a href={profile.medium} target="_blank" rel="noreferrer">
+              Medium
+            </a>
             <a href={`mailto:${profile.email}`}>Email</a>
-            <a href={profile.resume} download>Resume PDF</a>
+            <a href={profile.resume} download>
+              Resume PDF
+            </a>
           </div>
         </div>
       </section>
@@ -760,8 +876,9 @@ function App() {
           <div className="chatbot-header">
             <div>
               <h3>Ask Prasanna AI</h3>
-              <p>Resume-aware colorful assistant</p>
+              <p>Resume-aware portfolio assistant</p>
             </div>
+
             <button onClick={() => setChatOpen(false)}>×</button>
           </div>
 
@@ -769,17 +886,19 @@ function App() {
             <button onClick={() => quickAsk("Tell me about Prasanna")}>About</button>
             <button onClick={() => quickAsk("What are Prasanna's skills?")}>Skills</button>
             <button onClick={() => quickAsk("What projects has Prasanna built?")}>Projects</button>
-            <button onClick={() => quickAsk("Explain AgriVision AI farming project")}>AgriVision AI</button>
-            <button onClick={() => quickAsk("Tell me about Prasanna's healthcare AI projects")}>Healthcare AI</button>
+            <button onClick={() => quickAsk("Explain AgriVision AI farming project")}>
+              AgriVision AI
+            </button>
+            <button onClick={() => quickAsk("Tell me about Prasanna's healthcare AI projects")}>
+              Healthcare AI
+            </button>
             <button onClick={() => quickAsk("How can I contact Prasanna?")}>Contact</button>
           </div>
 
           <div className="chatbot-messages">
             {chatMessages.map((msg, index) => (
               <div className={`chat-row ${msg.sender}`} key={`${msg.sender}-${index}`}>
-                <div className={`chat-message ${msg.sender}`}>
-                  {msg.text}
-                </div>
+                <div className={`chat-message ${msg.sender}`}>{msg.text}</div>
               </div>
             ))}
           </div>
@@ -800,9 +919,7 @@ function App() {
         {chatOpen ? "×" : "💬 Ask AI"}
       </button>
 
-      <footer>
-        © 2026 Prasanna Rani — built with data, curiosity & neural sparks.
-      </footer>
+      <footer>© 2026 Prasanna Rani — built with data, curiosity & neural sparks.</footer>
     </div>
   );
 }
