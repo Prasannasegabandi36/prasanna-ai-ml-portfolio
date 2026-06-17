@@ -197,6 +197,17 @@ const projects = [
     year: "2026",
     image: "🌾",
     tech: ["Python", "Streamlit", "Pandas", "Plotly", "Pillow", "Groq API"],
+    desc: "A smart farming assistant website for farmers with crop recommendation, fertilizer guidance, irrigation advice, image-based farming reports, crop calendar, and farmer-friendly AI support.",
+    impact: "Built to help farmers understand crop health, soil needs, fertilizer use, and irrigation decisions in a simple way.",
+    github: "https://github.com/Prasannasegabandi36/agrivision-ai-smart-farming-assistant",
+    live: "#"
+  },
+  {
+    title: "AgriVision AI Smart Farming Assistant",
+    category: "Agriculture AI",
+    year: "2026",
+    image: "🌾",
+    tech: ["Python", "Streamlit", "Pandas", "Plotly", "Pillow", "Groq API"],
     desc: "A multimodal smart farming assistant for farmers with image-based crop reports, voice-friendly Q&A, crop recommendation, fertilizer guidance, irrigation advice, crop calendar, and research dashboard.",
     impact: "Designed for low-literacy farmers using simple farmer mode, browser text-to-speech, and practical crop decision support.",
     github: "https://github.com/Prasannasegabandi36/agrivision-ai-smart-farming-assistant",
