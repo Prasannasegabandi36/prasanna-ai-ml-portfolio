@@ -575,7 +575,6 @@ function App() {
           </div>
 
           <div className="profileCaption">
-            <span>AI Portfolio System</span>
             <p>Data Science • GenAI • Practical Projects</p>
           </div>
         </div>
