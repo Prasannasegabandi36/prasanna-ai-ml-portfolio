@@ -292,26 +292,121 @@ const courses = [
 ];
 
 const chatbotKnowledge = {
-  about:
-    "Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, NLP, GenAI, agriculture AI, healthcare AI, and analytics projects.",
-  education:
-    "Prasanna is pursuing BSc (Hons) in Data Science and Artificial Intelligence at IIT Guwahati with a current CGPA of 7.53. She completed Senior Secondary with 90.0% and Secondary with 93.0%.",
-  skills:
-    "Her skills include Python, SQL, Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn, NLTK, TextBlob, Streamlit, LangChain, CrewAI, Groq API, RAG basics, Git, GitHub, VS Code, Jupyter, and Google Colab.",
-  projects:
-    "Her major projects include AgriVision AI Smart Farming Assistant, AI Medicine Safety Assistant, Multi-Agent AI Career Assistant, AI Shopping Assistant, LinkedIn Post Generator, NLP Sentiment Analysis App, and Nassau Candy Distributor Analytics.",
-  farming:
-    "AgriVision AI Smart Farming Assistant is a multimodal farming project for farmers. It supports image-based crop reports, voice-friendly farmer Q&A, crop recommendation, fertilizer guidance, irrigation advice, crop calendar, research dashboard, simple farmer mode, and text-to-speech answers.",
-  experience:
-    "She worked on Data Science work with Unified Mentor and AI/ML project work with Micro Information Technology Services. Her work includes dashboards, KPI analysis, sentiment analysis, and Streamlit-based ML applications.",
-  contact:
-    "You can contact Prasanna through email at prasannasegabandi@gmail.com, GitHub at Prasannasegabandi36, LinkedIn at Segabandi Prasanna Rani, and Medium at @prasannasegabandi.",
-  research:
-    "Her interest domains include Agriculture AI, Healthcare AI, Medical Imaging, NLP, Content AI, Business Analytics, AI Commerce, Agentic AI, and practical AI tools."
+  about: `Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, NLP, GenAI, agriculture AI, healthcare AI, and analytics projects.
+
+She focuses on building useful projects that can be deployed and explained clearly in interviews.`,
+
+  education: `Education:
+• BSc (Hons) in Data Science and Artificial Intelligence — IIT Guwahati
+• Current CGPA: 7.53
+• Senior Secondary: 90.0%
+• Secondary: 93.0%
+
+She is learning data science, mathematics, computing, machine learning, deep learning, and applied AI.`,
+
+  skills: `Technical Skills:
+• Programming: Python, SQL, Java Basics, C Basics, C++ Basics
+• Data Science: Pandas, NumPy, EDA, Data Cleaning
+• Visualization: Matplotlib, Seaborn, Plotly, Excel
+• Machine Learning: Scikit-learn, Classification, Regression, Model Evaluation
+• NLP: NLTK, TextBlob, Sentiment Analysis
+• Generative AI: LLM Basics, Prompt Engineering, RAG Basics, LangChain, CrewAI, Groq API, Gemini API
+• Deployment: Streamlit, Streamlit Cloud, Vercel, Git, GitHub, VS Code, Jupyter, Google Colab`,
+
+  projects: `Major Projects:
+• AgriVision AI Smart Farming Assistant
+• AI Medicine Safety Assistant
+• Multi-Agent AI Career Assistant
+• AI Shopping Assistant
+• LinkedIn Post Generator
+• NLP Sentiment Analysis App
+• Nassau Candy Distributor Analytics
+
+These projects show her skills in AI/ML, GenAI, Streamlit apps, dashboards, NLP, agriculture AI, healthcare AI, and business analytics.`,
+
+  farming: `AgriVision AI Smart Farming Assistant is a smart farming project built for farmers.
+
+It supports:
+• Crop recommendation
+• Fertilizer guidance
+• Irrigation advice
+• Image-based crop reports
+• Crop calendar
+• Farmer-friendly AI support
+• Simple farming explanations
+
+The goal is to help farmers understand crop health, soil needs, fertilizer usage, and irrigation decisions in a simple way.`,
+
+  experience: `Experience:
+• Unified Mentor — Data Science Work, 2026 - Present
+• Micro Information Technology Services — AI/ML Project Work, 2025
+
+She has practical project experience in Data Science, AI/ML, Streamlit dashboards, GenAI applications, NLP sentiment analysis, KPI dashboards, and business analytics projects.`,
+
+  yearsExperience: `Prasanna has practical project and internship experience from 2025 to 2026.
+
+She has around 1+ year of hands-on experience through AI/ML projects, Data Science dashboards, GenAI applications, Streamlit deployment, and internship-based analytics work.`,
+
+  contact: `Contact Details:
+• Email: prasannasegabandi@gmail.com
+• GitHub: https://github.com/Prasannasegabandi36
+• LinkedIn: https://www.linkedin.com/in/segabandi-prasanna-rani-5828a42ba/
+• Medium: https://medium.com/@prasannasegabandi
+• Portfolio: https://prasanna-ai-ml-portfolio.vercel.app/`,
+
+  research: `Research Interests:
+• Agriculture AI
+• Healthcare AI
+• Medical Imaging
+• NLP and Content AI
+• Business Analytics
+• AI Commerce
+• Agentic AI
+• Practical AI tools for real users`,
+
+  resume: `Prasanna's resume highlights her education at IIT Guwahati, AI/ML and Data Science skills, Data Science project experience, GenAI projects, Streamlit deployments, and practical projects in farming AI, healthcare AI, NLP, and analytics.`
 };
 
 function getBotReply(message) {
-  const text = message.toLowerCase();
+  const text = message.toLowerCase().trim();
+
+  if (!text) {
+    return "Please type a question about Prasanna's resume, skills, projects, experience, education, or contact details.";
+  }
+
+  if (
+    text.includes("year") ||
+    text.includes("years") ||
+    text.includes("how many") ||
+    text.includes("experience does") ||
+    text.includes("experinece")
+  ) {
+    return chatbotKnowledge.yearsExperience;
+  }
+
+  if (
+    text.includes("skill") ||
+    text.includes("skills") ||
+    text.includes("tool") ||
+    text.includes("tools") ||
+    text.includes("technology") ||
+    text.includes("tech stack") ||
+    text.includes("programming") ||
+    text.includes("languages")
+  ) {
+    return chatbotKnowledge.skills;
+  }
+
+  if (
+    text.includes("project") ||
+    text.includes("projects") ||
+    text.includes("built") ||
+    text.includes("apps") ||
+    text.includes("application") ||
+    text.includes("portfolio work")
+  ) {
+    return chatbotKnowledge.projects;
+  }
 
   if (
     text.includes("farm") ||
@@ -325,37 +420,75 @@ function getBotReply(message) {
     return chatbotKnowledge.farming;
   }
 
-  if (text.includes("about") || text.includes("who") || text.includes("prasanna")) {
-    return chatbotKnowledge.about;
-  }
-
-  if (text.includes("education") || text.includes("study") || text.includes("college") || text.includes("iit")) {
-    return chatbotKnowledge.education;
-  }
-
-  if (text.includes("skill") || text.includes("tools") || text.includes("technology") || text.includes("tech")) {
-    return chatbotKnowledge.skills;
-  }
-
-  if (text.includes("project") || text.includes("work") || text.includes("built")) {
-    return chatbotKnowledge.projects;
-  }
-
-  if (text.includes("experience") || text.includes("company")) {
+  if (
+    text.includes("experience") ||
+    text.includes("internship") ||
+    text.includes("company") ||
+    text.includes("worked") ||
+    text.includes("work experience")
+  ) {
     return chatbotKnowledge.experience;
   }
 
-  if (text.includes("contact") || text.includes("email") || text.includes("linkedin") || text.includes("github")) {
+  if (
+    text.includes("contact") ||
+    text.includes("email") ||
+    text.includes("linkedin") ||
+    text.includes("github") ||
+    text.includes("medium") ||
+    text.includes("reach") ||
+    text.includes("connect")
+  ) {
     return chatbotKnowledge.contact;
   }
 
-  if (text.includes("research") || text.includes("domain") || text.includes("interest")) {
+  if (
+    text.includes("education") ||
+    text.includes("study") ||
+    text.includes("college") ||
+    text.includes("iit") ||
+    text.includes("degree") ||
+    text.includes("cgpa") ||
+    text.includes("qualification")
+  ) {
+    return chatbotKnowledge.education;
+  }
+
+  if (
+    text.includes("research") ||
+    text.includes("domain") ||
+    text.includes("interest") ||
+    text.includes("interests")
+  ) {
     return chatbotKnowledge.research;
   }
 
-  return "I can answer questions about Prasanna’s education, skills, projects, experience, research interests, farming AI project, and contact details. Try asking: What projects has Prasanna built?";
-}
+  if (
+    text.includes("resume") ||
+    text.includes("cv")
+  ) {
+    return chatbotKnowledge.resume;
+  }
 
+  if (
+    text.includes("about") ||
+    text.includes("who is") ||
+    text.includes("tell me about") ||
+    text.includes("prasanna")
+  ) {
+    return chatbotKnowledge.about;
+  }
+
+  return `I can answer questions about Prasanna's resume.
+
+Try asking:
+• Show her skills
+• What projects has Prasanna built?
+• How many years of experience does she have?
+• Tell me about Farming AI
+• What is her education?
+• How can I contact Prasanna?`;
+}
 function GitHubLogo() {
   return (
     <svg viewBox="0 0 24 24" className="realIcon">
