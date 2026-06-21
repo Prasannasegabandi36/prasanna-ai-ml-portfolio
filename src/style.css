@@ -750,6 +750,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .coreBrain span {
+  position: relative;
   color: #ffffff;
   font-size: 34px;
   font-weight: 900;
@@ -767,7 +768,7 @@ a { text-decoration: none; color: inherit; }
   color: #e2e8f0;
   animation: reverseRotate 22s linear infinite, nodeGlow 2.8s ease-in-out infinite;
   box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 24%, transparent);
-  z-index: 3;
+  z-index: 5;
 }
 
 .node1 { top: 8px; left: 146px; }
