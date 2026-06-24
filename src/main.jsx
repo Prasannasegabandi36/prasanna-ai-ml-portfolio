@@ -31,7 +31,7 @@ const typingSentences = [
   "Engineering practical AI systems from data to decisions.",
   "Building ML, NLP, GenAI, and analytics projects that can be deployed.",
   "Creating smart farming, healthcare AI, and real-world assistant applications.",
-  "Exploring healthcare AI, agentic workflows, agriculture AI, and intelligent dashboards.",
+  "Exploring healthcare AI, agentic workflows, and intelligent dashboards.",
   "Turning ideas into simple, useful, and real-world AI applications."
 ];
 
