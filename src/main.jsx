@@ -507,7 +507,7 @@ function App() {
     }
   ]);
 
-  const categories = ["All", "Agriculture AI", "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
+  const categories = ["All",  "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
 
   const filteredProjects =
     activeFilter === "All"
