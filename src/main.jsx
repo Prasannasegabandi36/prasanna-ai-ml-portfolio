@@ -1040,7 +1040,6 @@ function App() {
               <button onClick={() => quickAsk("Tell me about Prasanna")}>About</button>
               <button onClick={() => quickAsk("What are Prasanna's skills?")}>Skills</button>
               <button onClick={() => quickAsk("What projects has Prasanna built?")}>Projects</button>
-              <button onClick={() => quickAsk("Tell me about the farming AI project")}>Farming AI</button>
               <button onClick={() => quickAsk("What is Prasanna's experience?")}>Experience</button>
               <button onClick={() => quickAsk("How can I contact Prasanna?")}>Contact</button>
             </div>
