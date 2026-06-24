@@ -332,7 +332,7 @@ She has around 1+ year of hands-on experience through AI/ML projects, Data Scien
 • Agentic AI
 • Practical AI tools for real users`,
 
-  resume: `Prasanna's resume highlights her education at IIT Guwahati, AI/ML and Data Science skills, Data Science project experience, GenAI projects, Streamlit deployments, and practical projects in farming AI, healthcare AI, NLP, and analytics.`
+  resume: `Prasanna's resume highlights her education at IIT Guwahati, AI/ML and Data Science skills, Data Science project experience, GenAI projects, Streamlit deployments, and practical projects in healthcare AI, NLP, and analytics.`
 };
 
 function getBotReply(message) {
@@ -441,7 +441,6 @@ Try asking:
 • Show her skills
 • What projects has Prasanna built?
 • How many years of experience does she have?
-• Tell me about Farming AI
 • What is her education?
 • How can I contact Prasanna?`;
 }
@@ -503,7 +502,7 @@ function App() {
   const [chatMessages, setChatMessages] = useState([
     {
       sender: "bot",
-      text: "Hi, I am Ask Prasanna AI. You can ask me about Prasanna’s projects, skills, education, experience, research interests, farming AI project, or contact details."
+      text: "Hi, I am Ask Prasanna AI. You can ask me about Prasanna’s projects, skills, education, experience, research interests, or contact details."
     }
   ]);
 
@@ -709,7 +708,7 @@ function App() {
             <h3>Current Direction</h3>
             <p>
               I am focusing on stronger GenAI projects, agentic workflows,
-              practical dashboards, farming AI, and research-oriented healthcare AI ideas.
+              practical dashboards and research-oriented healthcare AI ideas.
             </p>
           </div>
         </div>
