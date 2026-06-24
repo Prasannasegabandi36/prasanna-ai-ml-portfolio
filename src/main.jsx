@@ -123,11 +123,6 @@ const skillGroups = [
 
 const researchDomains = [
   {
-    icon: "🌾",
-    title: "Agriculture AI",
-    desc: "Smart farming assistants for crop support, irrigation guidance, fertilizer awareness, and farmer-friendly voice tools."
-  },
-  {
     icon: "🏥",
     title: "Healthcare AI",
     desc: "AI tools for medicine awareness, prescription reading, and simple health explanations."
@@ -163,7 +158,6 @@ const visualStrip = [
   { icon: "🧠", title: "ML Models" },
   { icon: "📊", title: "Dashboards" },
   { icon: "🤖", title: "AI Agents" },
-  { icon: "🌾", title: "Farming AI" },
   { icon: "🏥", title: "Health AI" },
   { icon: "📝", title: "NLP Apps" },
   { icon: "🚀", title: "Deployments" },
@@ -191,17 +185,6 @@ const aiTopics = [
 ];
 
 const projects = [
-  {
-    title: "AgriVision AI Smart Farming Assistant",
-    category: "Agriculture AI",
-    year: "2026",
-    image: "🌾",
-    tech: ["Python", "Streamlit", "Pandas", "Plotly", "Pillow", "Groq API"],
-    desc: "A smart farming assistant website for farmers with crop recommendation, fertilizer guidance, irrigation advice, image-based farming reports, crop calendar, and farmer-friendly AI support.",
-    impact: "Built to help farmers understand crop health, soil needs, fertilizer use, and irrigation decisions in a simple way.",
-    github: "https://github.com/Prasannasegabandi36/agrivision-ai-smart-farming-assistant",
-    live: "https://agrivision-ai-smart-farming-assistant.streamlit.app/"
-  },
   {
     title: "AI Medicine Safety Assistant",
     category: "Healthcare AI",
@@ -314,7 +297,6 @@ She is learning data science, mathematics, computing, machine learning, deep lea
 • Deployment: Streamlit, Streamlit Cloud, Vercel, Git, GitHub, VS Code, Jupyter, Google Colab`,
 
   projects: `Major Projects:
-• AgriVision AI Smart Farming Assistant
 • AI Medicine Safety Assistant
 • Multi-Agent AI Career Assistant
 • AI Shopping Assistant
@@ -323,19 +305,6 @@ She is learning data science, mathematics, computing, machine learning, deep lea
 • Nassau Candy Distributor Analytics
 
 These projects show her skills in AI/ML, GenAI, Streamlit apps, dashboards, NLP, agriculture AI, healthcare AI, and business analytics.`,
-
-  farming: `AgriVision AI Smart Farming Assistant is a smart farming project built for farmers.
-
-It supports:
-• Crop recommendation
-• Fertilizer guidance
-• Irrigation advice
-• Image-based crop reports
-• Crop calendar
-• Farmer-friendly AI support
-• Simple farming explanations
-
-The goal is to help farmers understand crop health, soil needs, fertilizer usage, and irrigation decisions in a simple way.`,
 
   experience: `Experience:
 • Unified Mentor — Data Science Work, 2026 - Present
