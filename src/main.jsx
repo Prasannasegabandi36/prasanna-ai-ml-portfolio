@@ -324,7 +324,6 @@ She has around 1+ year of hands-on experience through AI/ML projects, Data Scien
 • Portfolio: https://prasanna-ai-ml-portfolio.vercel.app/`,
 
   research: `Research Interests:
-• Agriculture AI
 • Healthcare AI
 • Medical Imaging
 • NLP and Content AI
@@ -375,18 +374,6 @@ function getBotReply(message) {
     text.includes("portfolio work")
   ) {
     return chatbotKnowledge.projects;
-  }
-
-  if (
-    text.includes("farm") ||
-    text.includes("farming") ||
-    text.includes("agri") ||
-    text.includes("agriculture") ||
-    text.includes("crop") ||
-    text.includes("farmer") ||
-    text.includes("agrivision")
-  ) {
-    return chatbotKnowledge.farming;
   }
 
   if (
