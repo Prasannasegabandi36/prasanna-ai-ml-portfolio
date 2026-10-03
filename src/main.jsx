@@ -5,7 +5,7 @@ import "./style.css";
 const profile = {
   name: "Segabandi Prasanna Rani",
   shortName: "Prasanna Rani",
-  role: "AI, ML & Data Science Enthusiast",
+  role: "Data Science & AI Enthusiast · Deep Learning · Computer Vision",
   email: "prasannasegabandi@gmail.com",
   github: "https://github.com/Prasannasegabandi36",
   linkedin: "https://www.linkedin.com/in/segabandi-prasanna-rani-5828a42ba/",
@@ -30,6 +30,7 @@ const themeMap = {
 const typingSentences = [
   "Engineering practical AI systems from data to decisions.",
   "Building ML, NLP, GenAI, and analytics projects that can be deployed.",
+  "Applying deep learning and computer vision to number plate recognition and water segmentation.",
   "Creating smart farming, healthcare AI, and real-world assistant applications.",
   "Exploring healthcare AI, agentic workflows, and intelligent dashboards.",
   "Turning ideas into simple, useful, and real-world AI applications."
@@ -103,6 +104,16 @@ const skillGroups = [
     title: "Machine Learning & NLP",
     icon: "🧠",
     items: ["Scikit-learn", "Classification", "Regression", "Model Evaluation", "NLTK", "TextBlob", "Sentiment Analysis"]
+  },
+  {
+    title: "Deep Learning",
+    icon: "🧠",
+    items: ["PyTorch", "YOLO", "SegFormer", "Pretrained Model Inference"]
+  },
+  {
+    title: "Computer Vision",
+    icon: "👁️",
+    items: ["OpenCV", "Object Detection", "Image Segmentation", "Image Preprocessing", "OCR", "EasyOCR"]
   },
   {
     title: "Generative AI",
@@ -185,6 +196,28 @@ const aiTopics = [
 ];
 
 const projects = [
+  {
+    title: "Automatic Number Plate Recognition (ANPR)",
+    category: "Computer Vision",
+    year: "2026",
+    image: "🚘",
+    tech: ["Python", "YOLO", "OpenCV", "EasyOCR"],
+    desc: "A computer vision pipeline that detects vehicle number plates using YOLO and reads plate text using EasyOCR.",
+    impact: "Combines number plate detection, image cropping, and optical character recognition.",
+    github: null,
+    live: null
+  },
+  {
+    title: "Flood-Water Image Segmentation",
+    category: "Computer Vision",
+    year: "2026",
+    image: "🌊",
+    tech: ["Python", "PyTorch", "SegFormer", "OpenCV"],
+    desc: "A deep learning workflow for segmenting visible flood-water regions using SegFormer and OpenCV, with vegetation exclusion and boundary refinement.",
+    impact: "Focuses on water-mask coverage and boundaries as part of ongoing flood-depth research.",
+    github: null,
+    live: null
+  },
   {
     title: "AI Medicine Safety Assistant",
     category: "Healthcare AI",
@@ -275,7 +308,7 @@ const courses = [
 ];
 
 const chatbotKnowledge = {
-  about: `Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, NLP, GenAI, agriculture AI, healthcare AI, and analytics projects.
+  about: `Prasanna Rani is a Data Science and Artificial Intelligence student at IIT Guwahati. She builds practical AI, ML, Data Science, deep learning, computer vision, NLP, GenAI, agriculture AI, healthcare AI, and analytics projects.
 
 She focuses on building useful projects that can be deployed and explained clearly in interviews.`,
 
@@ -292,11 +325,15 @@ She is learning data science, mathematics, computing, machine learning, deep lea
 • Data Science: Pandas, NumPy, EDA, Data Cleaning
 • Visualization: Matplotlib, Seaborn, Plotly, Excel
 • Machine Learning: Scikit-learn, Classification, Regression, Model Evaluation
+• Deep Learning: PyTorch, YOLO, SegFormer, Pretrained Model Inference
+• Computer Vision: OpenCV, Object Detection, Image Segmentation, Image Preprocessing, OCR, EasyOCR
 • NLP: NLTK, TextBlob, Sentiment Analysis
 • Generative AI: LLM Basics, Prompt Engineering, RAG Basics, LangChain, CrewAI, Groq API, Gemini API
 • Deployment: Streamlit, Streamlit Cloud, Vercel, Git, GitHub, VS Code, Jupyter, Google Colab`,
 
   projects: `Major Projects:
+• Automatic Number Plate Recognition (ANPR) — YOLO, OpenCV, and EasyOCR
+• Flood-Water Image Segmentation — PyTorch, SegFormer, and OpenCV
 • AI Medicine Safety Assistant
 • Multi-Agent AI Career Assistant
 • AI Shopping Assistant
@@ -304,7 +341,7 @@ She is learning data science, mathematics, computing, machine learning, deep lea
 • NLP Sentiment Analysis App
 • Nassau Candy Distributor Analytics
 
-These projects show her skills in AI/ML, GenAI, Streamlit apps, dashboards, NLP, agriculture AI, healthcare AI, and business analytics.`,
+These projects show her skills in AI/ML, deep learning, computer vision, GenAI, Streamlit apps, dashboards, NLP, agriculture AI, healthcare AI, and business analytics.`,
 
   experience: `Experience:
 • Unified Mentor — Data Science Work, 2026 - Present
@@ -360,7 +397,13 @@ function getBotReply(message) {
     text.includes("technology") ||
     text.includes("tech stack") ||
     text.includes("programming") ||
-    text.includes("languages")
+    text.includes("languages") ||
+    text.includes("deep learning") ||
+    text.includes("computer vision") ||
+    text.includes("pytorch") ||
+    text.includes("opencv") ||
+    text.includes("segformer") ||
+    text.includes("yolo")
   ) {
     return chatbotKnowledge.skills;
   }
@@ -371,7 +414,11 @@ function getBotReply(message) {
     text.includes("built") ||
     text.includes("apps") ||
     text.includes("application") ||
-    text.includes("portfolio work")
+    text.includes("portfolio work") ||
+    text.includes("anpr") ||
+    text.includes("ocr") ||
+    text.includes("number plate") ||
+    text.includes("water segmentation")
   ) {
     return chatbotKnowledge.projects;
   }
@@ -506,7 +553,7 @@ function App() {
     }
   ]);
 
-  const categories = ["All",  "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
+  const categories = ["All", "Computer Vision", "GenAI", "Agentic AI", "Healthcare AI", "ML", "Data Science"];
 
   const filteredProjects =
     activeFilter === "All"
@@ -623,6 +670,8 @@ function App() {
 
           <div className="animatedWords">
             <span>Machine Learning</span>
+            <span>Deep Learning</span>
+            <span>Computer Vision</span>
             <span>Data Science</span>
             <span>Generative AI</span>
             <span>Agentic AI</span>
@@ -652,7 +701,7 @@ function App() {
           </div>
 
           <div className="profileCaption">
-            <p>Data Science • GenAI • Practical Projects</p>
+            <p>Data Science • Deep Learning • Computer Vision • GenAI</p>
           </div>
         </div>
       </section>
@@ -687,7 +736,9 @@ function App() {
             <p>
               I am Prasanna Rani, a Data Science and Artificial Intelligence student at
               IIT Guwahati. I enjoy learning by building projects in AI/ML, GenAI,
-              NLP, agriculture AI, healthcare awareness, and analytics dashboards.
+              deep learning, computer vision, NLP, agriculture AI, healthcare awareness,
+              and analytics dashboards. My practical vision work includes number plate
+              recognition with YOLO and EasyOCR, and flood-water segmentation with SegFormer and OpenCV.
             </p>
             <p>
               My goal is to create useful AI applications that can be tested by real users,
@@ -707,8 +758,9 @@ function App() {
           <div className="aboutBox">
             <h3>Current Direction</h3>
             <p>
-              I am focusing on stronger GenAI projects, agentic workflows,
-              practical dashboards and research-oriented healthcare AI ideas.
+              I am developing my deep learning and computer vision skills through
+              object detection, OCR, and water segmentation, alongside GenAI projects,
+              agentic workflows, practical dashboards, and healthcare AI ideas.
             </p>
           </div>
         </div>
@@ -895,8 +947,8 @@ function App() {
               </div>
 
               <div className="projectLinks">
-                <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
-                <a href={project.live} target="_blank" rel="noreferrer">Live Demo</a>
+                {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>}
+                {project.live && project.live !== "#" && <a href={project.live} target="_blank" rel="noreferrer">Live Demo</a>}
               </div>
             </div>
           ))}
